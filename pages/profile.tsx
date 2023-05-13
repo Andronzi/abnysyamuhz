@@ -1,24 +1,10 @@
-import axios from "axios";
 import Image from "next/image";
-import { useEffect, useState } from "react";
 import AchievementCard from "../components/AchievementCard";
 import AchievementRow from "../components/AchievementRow";
-import { useGetEmployeeQuery } from "../services/employee/employeeApiStub";
-import { Achievement } from "./api/models/achievement";
+import { useGetEmployeeQuery } from "../services/employee/employeeRealApi";
 
 const Profile = () => {
-  const employee = useGetEmployeeQuery("12").data;
-  const [achievements, setAchievements] = useState([] as Achievement[]);
-
-  async function getAchievements() {
-    const achievements = await axios.get(
-      "http://localhost:3000/api/achievement"
-    );
-    setAchievements(achievements.data);
-  }
-  useEffect(() => {
-    getAchievements();
-  }, []);
+  const employee = useGetEmployeeQuery("12")?.data;
 
   return (
     <div className="overflow-hidden">
@@ -29,16 +15,12 @@ const Profile = () => {
           <div className="info bg-[#2D2D2D] p-4 pb-8">
             <p className="font-bold text-white text-lg">Обо мне</p>
             <p className="mt-4 text-white">
-              Я имею высшее техническое образование и успешный опыт работы в
-              различных проектах. Я прекрасно разбираюсь в программировании на
-              Java и Python, а также владею английским языком на уровне
-              Advanced. Стремлюсь к развитию своих навыков не только в
-              направлении Backend, но и в направлении Machine Learning.
+              {employee?.About}
             </p>
           </div>
         </div>
         <div className="relative ml-8 mt-20 z-20 basis-full">
-          <h2 className="text-white text-4xl">Ксения Носкова</h2>
+          <h2 className="text-white text-4xl">{employee?.Name}</h2>
           <div className="balance-block absolute flex items-center right-0 top-3">
             <Image
               src="/coin.svg"
@@ -50,9 +32,9 @@ const Profile = () => {
           </div>
           <div className="profile-achievements w-full mt-10 p-4 rounded-lg bg-[#2D2D2D]">
             <ul className="grid grid-cols-5 gap-6">
-              {achievements.map(
+              {employee?.Badges.map(
                 (achievement, index) =>
-                  !!achievement.IsMain && (
+                  achievement.IsMain && (
                     <li key={index}>
                       <AchievementCard key={index} {...achievement} />
                     </li>
@@ -60,7 +42,7 @@ const Profile = () => {
               )}
             </ul>
             <ul>
-              {achievements.map(
+              {employee?.Badges.map(
                 (achievement, index) =>
                   !achievement.IsMain && (
                     <li className="mt-2" key={index}>

@@ -15,7 +15,7 @@ const AchievementRow: FC<Achievement> = ({ Src, Name, Date }) => (
       />
       <p className="mt-1 text-center text-white font-medium text-lg">{Name}</p>
     </div>
-    <p className="mt-1 text-center text-white text-md">{convertDate(Date)}</p>
+    <p className="mt-1 text-center text-white text-md">{Date}</p>
   </div>
 );
 

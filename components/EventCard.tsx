@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { FC } from "react";
-import { convertDate } from "../helpers/getDate";
 import { IEvent } from "../pages/api/models/event";
 
 const EventCard: FC<IEvent & { isAdmin: boolean }> = ({

@@ -1,18 +1,18 @@
 import { realSplitApi } from "../realSplitApi";
-import { EmployeeRequestBody, IEmployee } from "./types";
+import {Employee} from "../../pages/api/models/employee";
 
 const endpoint = "employee";
 
 export const employeeRealApi = realSplitApi.injectEndpoints({
     endpoints: (build) => ({
-        getEmployees: build.query<IEmployee[], void>({
+        getEmployees: build.query<Employee[], void>({
             query: () => `/${endpoint}`,
             providesTags: ["Employee"]
         }),
-        getEmployee: build.query<IEmployee, string>({
+        getEmployee: build.query<Employee, string>({
             query: (ID) => `/${endpoint}/${ID}`,
         }),
-        addEmployee: build.mutation<void, EmployeeRequestBody>({
+        addEmployee: build.mutation<void, Employee>({
             query(body) {
                 return {
                     url: `/${endpoint}`,
@@ -22,7 +22,7 @@ export const employeeRealApi = realSplitApi.injectEndpoints({
             },
             invalidatesTags: ["Employee"]
         }),
-        editEmployee: build.mutation<IEmployee, EmployeeRequestBody>({
+        editEmployee: build.mutation<Employee, Employee>({
             query(data) {
                 const { ID, ...body} = data;
                 return {
