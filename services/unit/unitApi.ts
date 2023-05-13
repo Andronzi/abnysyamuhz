@@ -1,12 +1,12 @@
-import { emptySplitApi } from "../emptySplitApi";
 import { UnitRequestBody, IUnit } from "./types";
+import {realSplitApi} from "../realSplitApi";
 
 const endpoint = "unit";
 
-export const unitApi = emptySplitApi.injectEndpoints({
+export const unitApi = realSplitApi.injectEndpoints({
     endpoints: (build) => ({
         getUnits: build.query<IUnit[], void>({
-            query: () => `/${endpoint}/`,
+            query: () => `/${endpoint}`,
             providesTags: ["Units"]
         }),
         getUnit: build.query<IUnit, string>({
@@ -16,7 +16,7 @@ export const unitApi = emptySplitApi.injectEndpoints({
         addUnit: build.mutation<void, UnitRequestBody>({
             query(body) {
                 return {
-                    url: "/unit",
+                    url: `/${endpoint}`,
                     method: "POST",
                     body
                 }
@@ -46,4 +46,4 @@ export const unitApi = emptySplitApi.injectEndpoints({
     overrideExisting: true
 })
 
-export const { useGetUnitQuery } = unitApi;
+export const { useGetUnitQuery, useGetUnitsQuery } = unitApi;

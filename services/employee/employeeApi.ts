@@ -1,12 +1,12 @@
-import { emptySplitApi } from "../emptySplitApi";
 import { EmployeeRequestBody, IEmployee } from "./types";
+import {realSplitApi} from "../realSplitApi";
 
 const endpoint = "employee";
 
-export const employeeApi = emptySplitApi.injectEndpoints({
+export const employeeApi = realSplitApi.injectEndpoints({
     endpoints: (build) => ({
         getEmployees: build.query<IEmployee[], void>({
-            query: () => `/${endpoint}/`,
+            query: () => `/${endpoint}`,
             providesTags: ["Employee"]
         }),
         getEmployee: build.query<IEmployee, string>({

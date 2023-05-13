@@ -5,6 +5,7 @@ export interface IUnit {
     Name: string;
 
     EmployeeUnits: {Employee: IEmployee}[];
+    Units: IUnit;
 }
 
 export type UnitRequestBody = Omit<IUnit, "id">;
