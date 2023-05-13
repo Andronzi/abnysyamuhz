@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { FC } from "react";
-import { Product } from "../pages/api/models/product";
+import { Gift } from "../pages/api/models/gift";
 
-const ProductCard: FC<Product> = ({ Src, Name, Price }) => (
+const ProductCard: FC<Gift> = ({ Src, Name, Price }) => (
   <>
     <img className="rounded-md" src={Src} alt="Картинка товара" />
     <div className="info">

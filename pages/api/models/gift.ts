@@ -1,4 +1,4 @@
-export interface Product {
+export interface Gift {
     Src: string;
     Name: string;
     Price: number;

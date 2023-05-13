@@ -1,10 +1,10 @@
 import { useRouter } from "next/router";
 import ProductCard from "../components/ProductCard";
-import { useGetProductsQuery } from "../services/product/productApiStub";
+import {useGetGiftsQuery} from "../services/gift/giftRealApi";
 
 const Market = () => {
   const { push, query } = useRouter();
-  const { data } = useGetProductsQuery();
+  const { data } = useGetGiftsQuery();
 
   const categoryHandler = (e: any) => {
     console.log("Надо чет делать с категориями :)");

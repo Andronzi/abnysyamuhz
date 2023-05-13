@@ -1,10 +1,10 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { Product } from "./models/product";
+import { Gift } from "./models/gift";
 
 
 export default function handler(
     req: NextApiRequest,
-    res: NextApiResponse<Product[]>
+    res: NextApiResponse<Gift[]>
   ) {
     const query = req.query;
     if (query.category === "Одежда") {
