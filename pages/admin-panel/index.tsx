@@ -34,7 +34,7 @@ const AdminPanel = () => {
           <p className="text-white">Новости компании</p>
         </AccordionHeader>
         <AccordionBody>
-          <Link href="/news/create">
+          <Link href="admin-panel/news/create">
             <button className="bg-blue-400 px-8 py-2 text-white rounded-md">
               Создать новость
             </button>
