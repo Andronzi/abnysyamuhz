@@ -1,9 +1,9 @@
-import { emptySplitApi } from "../emptySplitApi";
+import { realSplitApi } from "../realSplitApi";
 import { IUnit, UnitRequestBody } from "./types";
 
 const endpoint = "unit";
 
-export const unitEmptyApi = emptySplitApi.injectEndpoints({
+export const unitRealApi = realSplitApi.injectEndpoints({
     endpoints: (build) => ({
         getUnits: build.query<IUnit[], void>({
             query: () => `/${endpoint}`,
@@ -46,4 +46,4 @@ export const unitEmptyApi = emptySplitApi.injectEndpoints({
     overrideExisting: true
 })
 
-export const { useGetUnitQuery, useGetUnitsQuery } = unitEmptyApi;
+export const { useGetUnitQuery, useGetUnitsQuery } = unitRealApi;

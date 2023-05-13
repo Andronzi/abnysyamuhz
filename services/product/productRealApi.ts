@@ -1,7 +1,7 @@
 import { Product } from "../../pages/api/models/product";
-import { emptySplitApi } from "../emptySplitApi";
+import { realSplitApi } from "../realSplitApi";
 
-export const productEmptyApi = emptySplitApi.injectEndpoints({
+export const productRealApi = realSplitApi.injectEndpoints({
     endpoints: (build) => ({
         getProducts: build.query<Product[], void>({
             query: () => `/product`,
@@ -11,4 +11,4 @@ export const productEmptyApi = emptySplitApi.injectEndpoints({
     overrideExisting: true
 })
 
-export const { useGetProductsQuery } = productEmptyApi;
+export const { useGetProductsQuery } = productRealApi;

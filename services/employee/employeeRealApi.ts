@@ -1,19 +1,19 @@
-import { emptySplitApi } from "../emptySplitApi";
-import { IUnit, UnitRequestBody } from "./types";
+import { realSplitApi } from "../realSplitApi";
+import { EmployeeRequestBody, IEmployee } from "./types";
 
-const endpoint = "unit";
+const endpoint = "employee";
 
-export const unitEmptyApi = emptySplitApi.injectEndpoints({
+export const employeeRealApi = realSplitApi.injectEndpoints({
     endpoints: (build) => ({
-        getUnits: build.query<IUnit[], void>({
+        getEmployees: build.query<IEmployee[], void>({
             query: () => `/${endpoint}`,
-            providesTags: ["Units"]
+            providesTags: ["Employee"]
         }),
-        getUnit: build.query<IUnit, string>({
+        getEmployee: build.query<IEmployee, string>({
             query: (ID) => `/${endpoint}/${ID}`,
-            providesTags: ["Units"]
+            providesTags: ["Employee"]
         }),
-        addUnit: build.mutation<void, UnitRequestBody>({
+        addEmployee: build.mutation<void, EmployeeRequestBody>({
             query(body) {
                 return {
                     url: `/${endpoint}`,
@@ -22,7 +22,7 @@ export const unitEmptyApi = emptySplitApi.injectEndpoints({
                 }
             }
         }),
-        editUnit: build.mutation<IUnit, UnitRequestBody>({
+        editEmployee: build.mutation<IEmployee, EmployeeRequestBody>({
             query(data) {
                 const { ID, ...body} = data;
                 return {
@@ -31,19 +31,19 @@ export const unitEmptyApi = emptySplitApi.injectEndpoints({
                     body
                 }
             },
-            invalidatesTags: ["Units"]
+            invalidatesTags: ["Employee"]
         }),
-        deleteUnit: build.mutation<void, string>({
+        deleteEmployee: build.mutation<void, string>({
             query(ID) {
                 return {
                     url: `/${endpoint}/${ID}`,
                     method: "DELETE",
                 }
             },
-            invalidatesTags: ["Units"]
+            invalidatesTags: ["Employee"]
         }),
     }),
     overrideExisting: true
 })
 
-export const { useGetUnitQuery, useGetUnitsQuery } = unitEmptyApi;
+export const { useGetEmployeeQuery } = employeeRealApi;

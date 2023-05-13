@@ -1,9 +1,9 @@
+import { emptySplitApi } from "../emptySplitApi";
 import { EmployeeRequestBody, IEmployee } from "./types";
-import {realSplitApi} from "../realSplitApi";
 
 const endpoint = "employee";
 
-export const employeeApi = realSplitApi.injectEndpoints({
+export const employeeEmptyApi = emptySplitApi.injectEndpoints({
     endpoints: (build) => ({
         getEmployees: build.query<IEmployee[], void>({
             query: () => `/${endpoint}`,
@@ -46,4 +46,4 @@ export const employeeApi = realSplitApi.injectEndpoints({
     overrideExisting: true
 })
 
-export const { useGetEmployeeQuery } = employeeApi;
+export const { useGetEmployeeQuery } = employeeEmptyApi;

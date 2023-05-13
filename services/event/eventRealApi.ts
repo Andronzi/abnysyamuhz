@@ -1,7 +1,7 @@
 import { IEvent } from "../../pages/api/models/event";
-import { emptySplitApi } from "../emptySplitApi";
+import { realSplitApi } from "../realSplitApi";
 
-export const eventsEmptyApi = emptySplitApi.injectEndpoints({
+export const eventsRealApi = realSplitApi.injectEndpoints({
   endpoints: (build) => ({
     getEvents: build.query<IEvent[], void>({
       query: () => "/event",
@@ -11,4 +11,4 @@ export const eventsEmptyApi = emptySplitApi.injectEndpoints({
   overrideExisting: true,
 });
 
-export const { useGetEventsQuery } = eventsEmptyApi;
+export const { useGetEventsQuery } = eventsRealApi;

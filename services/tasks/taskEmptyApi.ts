@@ -1,7 +1,7 @@
 import { Task } from "../../pages/api/models/task";
 import { emptySplitApi } from "../emptySplitApi";
 
-export const taskApi = emptySplitApi.injectEndpoints({
+export const taskEmptyApi = emptySplitApi.injectEndpoints({
     endpoints: (build) => ({
         getTasks: build.query<Task[], void>({
             query: () => "/task",
@@ -11,4 +11,4 @@ export const taskApi = emptySplitApi.injectEndpoints({
     overrideExisting: true
 })
 
-export const { useGetTasksQuery } = taskApi;
+export const { useGetTasksQuery } = taskEmptyApi;

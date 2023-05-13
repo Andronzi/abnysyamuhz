@@ -1,14 +1,14 @@
 import { Product } from "../../pages/api/models/product";
 import { emptySplitApi } from "../emptySplitApi";
 
-export const productApi = emptySplitApi.injectEndpoints({
+export const achievementApi = emptySplitApi.injectEndpoints({
     endpoints: (build) => ({
-        getachievements: build.query<Product[], string>({
-            query: (category) => `/achievement`,
+        getAchievements: build.query<Product[], void>({
+            query: () => `/achievement`,
             providesTags: ["Achievements"]
         }),
     }),
     overrideExisting: true
 })
 
-export const { useGetachievementsQuery } = productApi;
+export const { useGetAchievementsQuery } = achievementApi;
