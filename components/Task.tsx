@@ -2,7 +2,7 @@ import Image from "next/image";
 import { FC } from "react";
 import { Task } from "../pages/api/models/task";
 
-const Task: FC<Task & { isAdmin: boolean }> = ({
+const TaskRow: FC<Task & { isAdmin: boolean }> = ({
   name,
   description,
   price,
@@ -36,4 +36,4 @@ const Task: FC<Task & { isAdmin: boolean }> = ({
   </div>
 );
 
-export default Task;
+export default TaskRow;

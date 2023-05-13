@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { News } from "../pages/api/models/news";
 
-const News: FC<News & { isAdmin: boolean }> = ({
+const NewsCard: FC<News & { isAdmin: boolean }> = ({
   ImageUrl,
   Title,
   Body,
@@ -29,4 +29,4 @@ const News: FC<News & { isAdmin: boolean }> = ({
     </div>
   </div>
 );
-export default News;
+export default NewsCard;

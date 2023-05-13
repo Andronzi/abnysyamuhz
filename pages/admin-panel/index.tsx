@@ -6,8 +6,8 @@ import {
 import Link from "next/link";
 import { useState } from "react";
 import EventCard from "../../components/EventCard";
-import News from "../../components/News";
-import Task from "../../components/Task";
+import NewsCard from "../../components/News";
+import TaskRow from "../../components/Task";
 import { useGetEventsQuery } from "../../services/event/eventApi";
 import { useGetNewsQuery } from "../../services/news/newsApi";
 import { useGetTasksQuery } from "../../services/tasks/taskEmptyApi";
@@ -44,7 +44,7 @@ const AdminPanel = () => {
               if (!news.IsMain) {
                 return (
                   <li className="product-card mt-8" key={index}>
-                    <News isAdmin={true} {...news} />
+                    <NewsCard isAdmin={true} {...news} />
                   </li>
                 );
               }
@@ -86,7 +86,7 @@ const AdminPanel = () => {
           <ul className="pb-4">
             {tasks?.map((task, index) => (
               <li className="product-card mt-4" key={index}>
-                <Task isAdmin={true} {...task} />
+                <TaskRow isAdmin={true} {...task} />
               </li>
             ))}
           </ul>
