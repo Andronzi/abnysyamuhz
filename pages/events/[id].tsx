@@ -1,5 +1,5 @@
 import TaskRow from "../../components/Task";
-import { useGetTasksQuery } from "../../services/tasks/taskEmptyApi";
+import { useGetTasksQuery } from "../../services/tasks/taskApiStub";
 
 const EventPage = () => {
   const tasks = useGetTasksQuery().data;

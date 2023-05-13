@@ -1,7 +1,7 @@
 import { Button, Card, Input, Typography } from "@material-tailwind/react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { useAddEmployeeMutation } from "../../../services/event/eventApi";
+import { useAddEmployeeMutation } from "../../../services/event/eventApiStub";
 import { IEvent } from "../../api/models/event";
 
 const EventForm = () => {

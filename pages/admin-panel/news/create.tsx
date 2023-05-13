@@ -7,7 +7,7 @@ import {
 } from "@material-tailwind/react";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { useAddNewsMutation } from "../../../services/news/newsApi";
+import { useAddNewsMutation } from "../../../services/news/newsApiStub";
 import { News } from "../../api/models/news";
 
 export type NewsRequest = Omit<News, "ID"> & { IsMain: boolean };
