@@ -1,17 +1,19 @@
 import { Button, Card, Input, Typography } from "@material-tailwind/react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { useAddEmployeeMutation } from "../../../services/event/eventApiStub";
-import { IEvent } from "../../api/models/event";
+import {
+  EventRequest,
+  useAddEventMutation,
+} from "../../../services/event/eventRealApi";
 
 const EventForm = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<IEvent>();
-  const [addEvent] = useAddEmployeeMutation();
-  const onSubmit: SubmitHandler<IEvent> = async (data) => {
+  } = useForm<EventRequest>();
+  const [addEvent] = useAddEventMutation();
+  const onSubmit: SubmitHandler<EventRequest> = async (data) => {
     try {
       await addEvent(data).unwrap();
       toast.success("Мероприятие успешно добавлено");
@@ -28,7 +30,7 @@ const EventForm = () => {
       className="p-8 max-w-md mx-auto rounded-lg"
     >
       <Typography variant="h4" className="text-center mb-6">
-        Add News
+        Добавить мероприятие
       </Typography>
       <Typography className="text-center mb-8">
         Enter your details to send news.
@@ -38,7 +40,7 @@ const EventForm = () => {
           size="lg"
           color="blue"
           placeholder="Введите название"
-          {...register("Title")}
+          {...register("Name")}
         />
         <Input
           size="lg"
