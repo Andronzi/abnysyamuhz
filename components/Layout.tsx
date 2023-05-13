@@ -23,6 +23,12 @@ const Layout: FC<PropsWithChildren<unknown>> = ({ children }) => {
             <Link className="nav__link text-md text-white ml-6" href="/market">
               Магазин
             </Link>
+            <Link
+              className="nav__link text-md text-white ml-6"
+              href="/admin-panel"
+            >
+              Админка
+            </Link>
           </ul>
           <div className="flex">
             <div className="search relative">
