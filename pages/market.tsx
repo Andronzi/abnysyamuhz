@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import ProductCard from "../components/ProductCard";
-import { useGetProductsQuery } from "../services/news/productApi";
+import { useGetProductsQuery } from "../services/product/productApi";
 
 const Market = () => {
   const { push, query } = useRouter();
@@ -14,7 +14,7 @@ const Market = () => {
   return (
     <>
       <div className="p-4 mt-2">
-        <ul className="flex text-white text-lg">
+        <ul className="flex justify-center text-white text-lg">
           <li className="cursor-pointer" onClick={(e) => categoryHandler(e)}>
             Одежда
           </li>

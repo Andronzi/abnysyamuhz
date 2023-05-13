@@ -10,11 +10,15 @@ export const commonApi = <IEntity extends ICommon, IRequest extends ICommon>
         tag: TagDescription<TagType>
     ) => emptySplitApi.injectEndpoints({
     endpoints: (build) => ({
-        getEmployee: build.query<typeof entity, string>({
+        getEntities: build.query<typeof entity, void>({
+            query: () => `/${endpoint}/`,
+            providesTags: [tag]
+        }),
+        getEntity: build.query<typeof entity, string>({
             query: (ID) => `/${endpoint}/${ID}`,
             providesTags: [tag]
         }),
-        addEmployee: build.mutation<void, typeof request>({
+        addEntity: build.mutation<void, typeof request>({
             query(body) {
                 return {
                     url: `/${endpoint}`,
@@ -23,7 +27,7 @@ export const commonApi = <IEntity extends ICommon, IRequest extends ICommon>
                 }
             }
         }),
-        editEmployee: build.mutation<typeof entity, typeof entity>({
+        editEntity: build.mutation<typeof entity, typeof entity>({
             query(data) {
                 const { ID, ...body} = data;
                 return {
@@ -34,7 +38,7 @@ export const commonApi = <IEntity extends ICommon, IRequest extends ICommon>
             },
             invalidatesTags: [tag]
         }),
-        deleteEmployee: build.mutation<void, string>({
+        deleteEntity: build.mutation<void, string>({
             query(ID) {
                 return {
                     url: `/${endpoint}/${ID}`,

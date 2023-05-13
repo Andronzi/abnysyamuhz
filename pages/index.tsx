@@ -1,10 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
 import type { NextPage } from "next";
 import News from "../components/News";
-import { useGetNewsQuery } from "../services/news/newsApi";
+import { commonApi } from "../services/common/commponApi";
+import { NewsObj } from "./api/models/news";
 
 const Home: NextPage = () => {
-  const { data } = useGetNewsQuery();
+  const { data } = commonApi(
+    "news",
+    NewsObj,
+    NewsObj,
+    "News"
+  ).useGetEntitiesQuery();
   return (
     <>
       <div className="flex flex-row mt-6">

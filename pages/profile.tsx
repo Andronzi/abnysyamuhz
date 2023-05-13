@@ -2,9 +2,17 @@ import axios from "axios";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import AchievementCard from "../components/AchievementCard";
+import { commonApi } from "../services/common/commponApi";
+import { EmployeeObj } from "../services/common/types";
 import { Achievement } from "./api/models/achievement";
 
 const Profile = () => {
+  const employee = commonApi(
+    "employee",
+    EmployeeObj,
+    EmployeeObj,
+    "Employee"
+  ).useGetEntityQuery("12").data;
   const [achievements, setAchievements] = useState([] as Achievement[]);
 
   async function getAchievements() {
@@ -43,7 +51,7 @@ const Profile = () => {
               width={32}
               height={32}
             />
-            <p className="text-white">50</p>
+            <p className="text-white">{employee?.Balance}</p>
           </div>
           <div className="profile-achievements w-full mt-10 p-4 rounded-lg bg-[#2D2D2D]">
             <ul className="grid grid-cols-5 gap-6">
