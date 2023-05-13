@@ -3,12 +3,14 @@ import ProductCard from "../components/ProductCard";
 import { useGetProductsQuery } from "../services/product/productApi";
 
 const Market = () => {
-  const { push, query, route } = useRouter();
-  const { data } = useGetProductsQuery(query.category as string);
+  const { push, query } = useRouter();
+  const { data } = useGetProductsQuery();
 
   const categoryHandler = (e: any) => {
-    const target = e.target as HTMLLIElement;
-    push({ query: { ...query, category: target.innerText } });
+    console.log("Надо чет делать с категориями :)");
+
+    // const target = e.target as HTMLLIElement;
+    // push({ query: { ...query, category: target.innerText } });
   };
 
   return (
