@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import type { NextPage } from "next";
 import { MainContent } from "../components/MainContent";
-import News from "../components/News";
+import NewsCard from "../components/News";
 import { useGetNewsQuery } from "../services/news/newsApi";
 
 const Home: NextPage = () => {
@@ -21,7 +21,7 @@ const Home: NextPage = () => {
           if (!news.IsMain) {
             return (
               <li className="product-card mt-8" key={index}>
-                <News isAdmin={false} {...news} />
+                <NewsCard isAdmin={false} {...news} />
               </li>
             );
           }
