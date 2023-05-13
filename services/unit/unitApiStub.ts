@@ -1,18 +1,18 @@
 import { emptySplitApi } from "../emptySplitApi";
-import { IUnit, UnitRequestBody } from "./types";
+import {Unit} from "../../pages/api/models/unit";
 
 const endpoint = "unit";
 
 export const unitEmptyApi = emptySplitApi.injectEndpoints({
     endpoints: (build) => ({
-        getUnits: build.query<IUnit[], void>({
+        getUnits: build.query<Unit[], void>({
             query: () => `/${endpoint}`,
             providesTags: ["Units"]
         }),
-        getUnit: build.query<IUnit, string>({
+        getUnit: build.query<Unit, string>({
             query: (ID) => `/${endpoint}/${ID}`,
         }),
-        addUnit: build.mutation<void, UnitRequestBody>({
+        addUnit: build.mutation<void, Unit>({
             query(body) {
                 return {
                     url: `/${endpoint}`,
@@ -22,7 +22,7 @@ export const unitEmptyApi = emptySplitApi.injectEndpoints({
             },
             invalidatesTags: ["Units"]
         }),
-        editUnit: build.mutation<IUnit, UnitRequestBody>({
+        editUnit: build.mutation<Unit, Unit>({
             query(data) {
                 const { ID, ...body} = data;
                 return {
