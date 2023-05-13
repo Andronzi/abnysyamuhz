@@ -1,9 +1,9 @@
-import { Product } from "../../pages/api/models/product";
+import { Gift } from "../../pages/api/models/gift";
 import { emptySplitApi } from "../emptySplitApi";
 
 export const achievementEmptyApi = emptySplitApi.injectEndpoints({
     endpoints: (build) => ({
-        getAchievements: build.query<Product[], void>({
+        getAchievements: build.query<Gift[], void>({
             query: () => `/achievement`,
             providesTags: ["Achievements"]
         }),
