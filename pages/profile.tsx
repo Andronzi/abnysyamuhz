@@ -1,4 +1,5 @@
 import axios from "axios";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import AchievementCard from "../components/AchievementCard";
 import { Achievement } from "./api/models/achievement";
@@ -17,25 +18,43 @@ const Profile = () => {
   }, []);
 
   return (
-    <div className="flex flex-row">
-      <div className="basis-1/2">
-        <img src="/avatar.svg" />
-        <p className="font-bold">Обо мне</p>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore,
-          eius itaque? Asperiores commodi voluptas et deserunt! Eveniet esse est
-          corrupti, doloremque maiores similique culpa laborum quidem, vitae
-          doloribus voluptates fuga.
-        </p>
-      </div>
-      <div className="basis-1/2">
-        <ul className="grid grid-cols-3 gap-4">
-          {achievements.map((achievement, index) => (
-            <li key={index}>
-              <AchievementCard {...achievement} />
-            </li>
-          ))}
-        </ul>
+    <div className="overflow-hidden">
+      <div className="absolute left-0 top-20 h-44 bg-cover bg-[url('/back.png')] w-full z-10"></div>
+      <div className="flex flex-row mt-8 w-full">
+        <div className="w-96 z-20">
+          <img src="/avatar.png" className="w-full" />
+          <div className="info bg-[#2D2D2D] p-4 pb-8">
+            <p className="font-bold text-white text-lg">Обо мне</p>
+            <p className="mt-4 text-white">
+              Я имею высшее техническое образование и успешный опыт работы в
+              различных проектах. Я прекрасно разбираюсь в программировании на
+              Java и Python, а также владею английским языком на уровне
+              Advanced. Стремлюсь к развитию своих навыков не только в
+              направлении Backend, но и в направлении Machine Learning.
+            </p>
+          </div>
+        </div>
+        <div className="relative ml-8 mt-20 z-20 basis-full">
+          <h2 className="text-white text-4xl">Ксения Носкова</h2>
+          <div className="balance-block absolute flex items-center right-0 top-3">
+            <Image
+              src="/coin.svg"
+              alt="Картинка монеты"
+              width={32}
+              height={32}
+            />
+            <p className="text-white">50</p>
+          </div>
+          <div className="profile-achievements w-full mt-10 p-4 rounded-lg bg-[#2D2D2D]">
+            <ul className="grid grid-cols-5 gap-6">
+              {achievements.map((achievement, index) => (
+                <li key={index}>
+                  <AchievementCard {...achievement} />
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   );
