@@ -1,10 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FC, PropsWithChildren } from "react";
+import { Toaster } from "react-hot-toast";
 
 const Layout: FC<PropsWithChildren<unknown>> = ({ children }) => {
   return (
     <div className="bg-dark min-h-screen h-full">
+      <Toaster />
       <div className="border-b-2 border-gray-100/10">
         <nav className="max-w-7xl mx-auto flex justify-between items-center">
           <ul className="flex items-center pl-0 py-3">
