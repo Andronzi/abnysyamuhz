@@ -21,7 +21,7 @@ const Home: NextPage = () => {
           if (!news.IsMain) {
             return (
               <li className="product-card mt-8" key={index}>
-                <News {...news} />
+                <News isAdmin={false} {...news} />
               </li>
             );
           }
