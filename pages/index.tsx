@@ -2,7 +2,7 @@
 import type { NextPage } from "next";
 import { MainContent } from "../components/MainContent";
 import NewsCard from "../components/News";
-import { useGetNewsQuery } from "../services/news/newsApiStub";
+import { useGetNewsQuery } from "../services/news/newsRealApi";
 
 const Home: NextPage = () => {
   const { data } = useGetNewsQuery();

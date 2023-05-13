@@ -8,9 +8,9 @@ import { useState } from "react";
 import EventCard from "../../components/EventCard";
 import NewsCard from "../../components/News";
 import TaskRow from "../../components/Task";
-import { useGetEventsQuery } from "../../services/event/eventApiStub";
-import { useGetNewsQuery } from "../../services/news/newsApiStub";
-import { useGetTasksQuery } from "../../services/tasks/taskApiStub";
+import { useGetEventsQuery } from "../../services/event/eventRealApi";
+import { useGetNewsQuery } from "../../services/news/newsRealApi";
+import { useGetTasksQuery } from "../../services/tasks/taskRealApi";
 
 const AdminPanel = () => {
   const news = useGetNewsQuery().data;
