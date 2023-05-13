@@ -3,18 +3,18 @@ import { FC } from "react";
 import { Task } from "../pages/api/models/task";
 
 const TaskRow: FC<Task & { isAdmin: boolean }> = ({
-  name,
-  description,
-  price,
+  Name,
+  Description,
+  Reward,
   isAdmin,
 }) => (
   <div className="flex justify-between items-center">
     <div>
-      <p className="text-white text-lg">{name}</p>
-      <p className="text-gray-500 text-md">{description}</p>
+      <p className="text-white text-lg">{Name}</p>
+      <p className="text-gray-500 text-md">{Description}</p>
     </div>
     <div className="flex items-center">
-      <p className="text-white">{price}</p>
+      <p className="text-white">{Reward}</p>
       <Image
         className="ml-2"
         width={24}
