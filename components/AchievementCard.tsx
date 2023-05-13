@@ -2,7 +2,7 @@ import Image from "next/image";
 import { FC } from "react";
 import {Badge} from "../pages/api/models/badge";
 
-const AchievementCard: FC<Badge> = ({ ImageURL, Name, Date }) => (
+const AchievementCard: FC<Badge> = ({ ImageURL, Name, CreatedAt }) => (
   <div className="flex flex-col justify-center">
     <Image
       className="mx-auto"
@@ -12,7 +12,7 @@ const AchievementCard: FC<Badge> = ({ ImageURL, Name, Date }) => (
       height={128}
     />
     <p className="mt-1 text-center text-white font-medium">{Name}</p>
-    <p className="mt-1 text-center text-white">{Date}</p>
+    <p className="mt-1 text-center text-white">{CreatedAt}</p>
   </div>
 );
 
