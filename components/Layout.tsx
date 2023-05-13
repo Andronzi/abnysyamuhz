@@ -43,13 +43,15 @@ const Layout: FC<PropsWithChildren<unknown>> = ({ children }) => {
               <Image src="/coin.svg" alt="Монетка" width={28} height={28} />
               <p className="text-white text-lg">50</p>
             </div>
-            <Image
-              className="profile ml-6"
-              src="/avatar.svg"
-              alt="Аватар"
-              width={36}
-              height={36}
-            />
+            <Link href="/profile">
+              <Image
+                className="profile ml-6"
+                src="/avatar.svg"
+                alt="Аватар"
+                width={36}
+                height={36}
+              />
+            </Link>
           </div>
         </nav>
       </div>
