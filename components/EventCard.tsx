@@ -4,17 +4,17 @@ import { convertDate } from "../helpers/getDate";
 import { IEvent } from "../pages/api/models/event";
 
 const EventCard: FC<IEvent & { isAdmin: boolean }> = ({
-  Title,
-  Src,
+  Name,
+  ImageUrl,
   Place,
   Date,
   isAdmin,
 }) => (
   <>
-    <p className="text-white text-2xl font-bold">{Title}</p>
+    <p className="text-white text-2xl font-bold">{Name}</p>
     <img
       className="mt-2 object-cover h-44 w-full rounded-md"
-      src={Src}
+      src={ImageUrl}
       alt="Картинка мероприятия"
     />
     <p className="text-white text-md mt-2 flex">
@@ -23,7 +23,7 @@ const EventCard: FC<IEvent & { isAdmin: boolean }> = ({
     </p>
     <p className="text-white text-md flex">
       <Image src="/calendar.svg" alt="Дата проведения" width={20} height={20} />
-      <span className="ml-2">{convertDate(Date)}</span>
+      <span className="ml-2">{Date}</span>
     </p>
     <p className="text-white text-md flex">
       <Image src="/price.svg" alt="Приз" width={20} height={20} />
