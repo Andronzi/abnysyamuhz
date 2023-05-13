@@ -9,7 +9,7 @@ import News from "../../components/News";
 import Task from "../../components/Task";
 import { useGetEventsQuery } from "../../services/event/eventApi";
 import { useGetNewsQuery } from "../../services/news/newsApi";
-import { useGetTasksQuery } from "../../services/tasks/taskApi";
+import { useGetTasksQuery } from "../../services/tasks/taskEmptyApi";
 
 const AdminPanel = () => {
   const news = useGetNewsQuery().data;
@@ -38,7 +38,7 @@ const AdminPanel = () => {
               if (!news.IsMain) {
                 return (
                   <li className="product-card mt-8" key={index}>
-                    <News {...news} />
+                    <News isAdmin={true} {...news} />
                   </li>
                 );
               }
