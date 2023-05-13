@@ -14,7 +14,7 @@ const Layout: FC<PropsWithChildren<unknown>> = ({ children }) => {
             <Link className="nav__link text-md text-white ml-12" href="/events">
               Мероприятия
             </Link>
-            <Link className="nav__link text-md text-white ml-6" href="/events">
+            <Link className="nav__link text-md text-white ml-6" href="/staff">
               Сотрудники
             </Link>
             <Link className="nav__link text-md text-white ml-6" href="/booking">
