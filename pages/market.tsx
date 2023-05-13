@@ -3,7 +3,7 @@ import ProductCard from "../components/ProductCard";
 import { useGetProductsQuery } from "../services/product/productApi";
 
 const Market = () => {
-  const { push, query } = useRouter();
+  const { push, query, route } = useRouter();
   const { data } = useGetProductsQuery(query.category as string);
 
   const categoryHandler = (e: any) => {
