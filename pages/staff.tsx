@@ -5,7 +5,7 @@ import {
   Input,
 } from "@material-tailwind/react";
 import { useState } from "react";
-import {useGetUnitsQuery} from "../services/unit/unitApi";
+import {useGetUnitsQuery} from "../services/unit/unitApiStub";
 
 const Staff = () => {
   const { data } = useGetUnitsQuery();

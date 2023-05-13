@@ -4,17 +4,17 @@ import { convertDate } from "../helpers/getDate";
 import { IEvent } from "../pages/api/models/event";
 
 const EventCard: FC<IEvent & { isAdmin: boolean }> = ({
-  Title,
-  Src,
+  Name,
+  ImageURL,
   Place,
   Date,
   isAdmin,
 }) => (
   <>
-    <p className="text-white text-2xl font-bold">{Title}</p>
+    <p className="text-white text-2xl font-bold">{Name}</p>
     <img
       className="mt-2 object-cover h-44 w-full rounded-md"
-      src={Src}
+      src={ImageURL}
       alt="Картинка мероприятия"
     />
     <p className="text-white text-md mt-2 flex">

@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import AchievementCard from "../components/AchievementCard";
 import AchievementRow from "../components/AchievementRow";
-import { useGetEmployeeQuery } from "../services/employee/employeeApi";
+import { useGetEmployeeQuery } from "../services/employee/employeeApiStub";
 import { Achievement } from "./api/models/achievement";
 
 const Profile = () => {

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import EventCard from "../components/EventCard";
 import { MainContent } from "../components/MainContent";
-import { useGetEventsQuery } from "../services/event/eventApi";
+import { useGetEventsQuery } from "../services/event/eventRealApi";
 
 export const Events = () => {
   const { data } = useGetEventsQuery();
