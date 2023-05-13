@@ -2,7 +2,6 @@ import { Task } from "../../pages/api/models/task";
 import { realSplitApi } from "../realSplitApi";
 
 
-type Exclude = "ID" | 
 export type TaskRequest = Omit<Task, "ID">;
 
 export const taskRealApi = realSplitApi.injectEndpoints({
