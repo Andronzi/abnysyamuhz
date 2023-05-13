@@ -5,8 +5,11 @@ import {
   Input,
 } from "@material-tailwind/react";
 import { useState } from "react";
+import {useGetUnitsQuery} from "../services/unit/unitApi";
 
 const Staff = () => {
+  const { data } = useGetUnitsQuery();
+
   const [openUnits, setOpen] = useState<number[]>([]);
 
   const isOpen = (value: number) => {
