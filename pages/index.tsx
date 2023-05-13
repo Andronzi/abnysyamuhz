@@ -1,20 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
-import axios from "axios";
 import type { NextPage } from "next";
-import { useEffect, useState } from "react";
 import News from "../components/News";
+import { useGetNewsQuery } from "../services/news/newsApi";
 
 const Home: NextPage = () => {
-  const [news, setNews] = useState([] as News[]);
-
-  async function getNews() {
-    const news = await axios.get("http://localhost:3000/api/news");
-    setNews(news.data);
-  }
-
-  useEffect(() => {
-    getNews();
-  }, []);
+  const { data } = useGetNewsQuery();
   return (
     <>
       <div className="flex flex-row mt-6">
@@ -38,12 +28,8 @@ const Home: NextPage = () => {
         </div>
       </div>
       <ul className="product-list grid grid-cols-3 gap-4">
-        {news.map((news, index) => {
+        {data?.map((news, index) => {
           if (!news.isMain) {
-            // if (news.description.length > 40) {
-            //   console.log(news.description.substring(0, 40) + "...");
-            //   news.description = news.description.substring(0, 40) + "...";
-            // }
             return (
               <li className="product-card mt-8" key={index}>
                 <News {...news} />
