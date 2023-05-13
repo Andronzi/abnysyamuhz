@@ -40,15 +40,11 @@ const AdminPanel = () => {
             </button>
           </Link>
           <ul className="product-list grid grid-cols-3 gap-4">
-            {news?.map((news, index) => {
-              if (!news.IsMain) {
-                return (
-                  <li className="product-card mt-8" key={index}>
-                    <NewsCard isAdmin={true} {...news} />
-                  </li>
-                );
-              }
-            })}
+            {news?.map((news, index) => (
+              <li className="product-card mt-8" key={index}>
+                <NewsCard isAdmin={true} {...news} />
+              </li>
+            ))}
           </ul>
         </AccordionBody>
       </Accordion>

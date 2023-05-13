@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import ProductCard from "../components/ProductCard";
-import { useGetProductsQuery } from "../services/product/productApiStub";
+import { useGetProductsQuery } from "../services/product/productRealApi";
 
 const Market = () => {
   const { push, query } = useRouter();
