@@ -1,33 +1,28 @@
-import { TagDescription } from "@reduxjs/toolkit/dist/query";
 import { emptySplitApi } from "../emptySplitApi";
-import { ICommon, TagType } from "./types";
+import { EmployeeRequestBody, IEmployee } from "./types";
 
-export const commonApi = <IEntity extends ICommon, IRequest extends ICommon>
-    (
-        endpoint: string, 
-        entity: IEntity, 
-        request: IRequest, 
-        tag: TagDescription<TagType>
-    ) => emptySplitApi.injectEndpoints({
+const endpoint = "employee";
+
+export const employeeApi = emptySplitApi.injectEndpoints({
     endpoints: (build) => ({
-        getEntities: build.query<typeof entity, void>({
+        getEmployees: build.query<IEmployee[], void>({
             query: () => `/${endpoint}/`,
-            providesTags: [tag]
+            providesTags: ["Employee"]
         }),
-        getEntity: build.query<typeof entity, string>({
+        getEmployee: build.query<IEmployee, string>({
             query: (ID) => `/${endpoint}/${ID}`,
-            providesTags: [tag]
+            providesTags: ["Employee"]
         }),
-        addEntity: build.mutation<void, typeof request>({
+        addEmployee: build.mutation<void, EmployeeRequestBody>({
             query(body) {
                 return {
-                    url: `/${endpoint}`,
+                    url: "/employee",
                     method: "POST",
                     body
                 }
             }
         }),
-        editEntity: build.mutation<typeof entity, typeof entity>({
+        editEmployee: build.mutation<IEmployee, EmployeeRequestBody>({
             query(data) {
                 const { ID, ...body} = data;
                 return {
@@ -36,17 +31,19 @@ export const commonApi = <IEntity extends ICommon, IRequest extends ICommon>
                     body
                 }
             },
-            invalidatesTags: [tag]
+            invalidatesTags: ["Employee"]
         }),
-        deleteEntity: build.mutation<void, string>({
+        deleteEmployee: build.mutation<void, string>({
             query(ID) {
                 return {
                     url: `/${endpoint}/${ID}`,
                     method: "DELETE",
                 }
             },
-            invalidatesTags: [tag]
+            invalidatesTags: ["Employee"]
         }),
     }),
     overrideExisting: true
 })
+
+export const { useGetEmployeeQuery } = employeeApi;

@@ -17,6 +17,10 @@ const ProductCard: FC<Product> = ({ Src, Name, Price }) => (
           height={26}
         />
       </div>
+      <button className="w-full py-1.5 mt-2 bg-coral text-white flex justify-center rounded-md">
+        <Image src="/cart.svg" alt="Иконка корзины" width={24} height={24} />
+        <span className="ml-2">Купить</span>
+      </button>
     </div>
   </>
 );

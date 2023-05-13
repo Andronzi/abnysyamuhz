@@ -10,17 +10,40 @@ export default function handler(
     {
         Src: "/achievement.svg",
         Name: "Сквозь дедлайны",
-        Date: new Date()
+        Date: new Date(),
+        IsMain: true
     },
     {
         Src: "/achievement.svg",
         Name: "Сквозь дедлайны",
-        Date: new Date()
+        Date: new Date(),
+        IsMain: true
     },
     {
         Src: "/achievement.svg",
         Name: "Сквозь дедлайны",
-        Date: new Date()
+        Date: new Date(),
+        IsMain: true
+    },
+    {
+      Src: "/fire.png",
+      Name: "Хакатон",
+      Date: new Date(),
+    },
+    {
+      Src: "/fire.png",
+      Name: "Хакатон",
+      Date: new Date(),
+    },
+    {
+      Src: "/fire.png",
+      Name: "Хакатон",
+      Date: new Date(),
+    },
+    {
+      Src: "/fire.png",
+      Name: "Хакатон",
+      Date: new Date(),
     }
   ])
 }

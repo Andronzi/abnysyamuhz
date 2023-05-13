@@ -2,17 +2,12 @@ import axios from "axios";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import AchievementCard from "../components/AchievementCard";
-import { commonApi } from "../services/common/commponApi";
-import { EmployeeObj } from "../services/common/types";
+import AchievementRow from "../components/AchievementRow";
+import { useGetEmployeeQuery } from "../services/employee/employeeApi";
 import { Achievement } from "./api/models/achievement";
 
 const Profile = () => {
-  const employee = commonApi(
-    "employee",
-    EmployeeObj,
-    EmployeeObj,
-    "Employee"
-  ).useGetEntityQuery("12").data;
+  const employee = useGetEmployeeQuery("12").data;
   const [achievements, setAchievements] = useState([] as Achievement[]);
 
   async function getAchievements() {
@@ -29,7 +24,7 @@ const Profile = () => {
     <div className="overflow-hidden">
       <div className="absolute left-0 top-20 h-44 bg-cover bg-[url('/back.png')] w-full z-10"></div>
       <div className="flex flex-row mt-8 w-full">
-        <div className="w-96 z-20">
+        <div className="basis-2/5 z-20">
           <img src="/avatar.png" className="w-full" />
           <div className="info bg-[#2D2D2D] p-4 pb-8">
             <p className="font-bold text-white text-lg">Обо мне</p>
@@ -55,11 +50,24 @@ const Profile = () => {
           </div>
           <div className="profile-achievements w-full mt-10 p-4 rounded-lg bg-[#2D2D2D]">
             <ul className="grid grid-cols-5 gap-6">
-              {achievements.map((achievement, index) => (
-                <li key={index}>
-                  <AchievementCard {...achievement} />
-                </li>
-              ))}
+              {achievements.map(
+                (achievement, index) =>
+                  !!achievement.IsMain && (
+                    <li key={index}>
+                      <AchievementCard key={index} {...achievement} />
+                    </li>
+                  )
+              )}
+            </ul>
+            <ul>
+              {achievements.map(
+                (achievement, index) =>
+                  !achievement.IsMain && (
+                    <li className="mt-2" key={index}>
+                      <AchievementRow {...achievement} />
+                    </li>
+                  )
+              )}
             </ul>
           </div>
         </div>
