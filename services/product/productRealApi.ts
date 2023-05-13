@@ -4,7 +4,7 @@ import { realSplitApi } from "../realSplitApi";
 export const productRealApi = realSplitApi.injectEndpoints({
     endpoints: (build) => ({
         getProducts: build.query<Product[], void>({
-            query: () => `/product`,
+            query: () => `/gift`,
             providesTags: ["Products"]
         }),
     }),

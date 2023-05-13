@@ -1,5 +1,10 @@
+import { IEmployee } from "../../../services/employee/types";
+
 export interface Task {
-    name: string;
-    description: string;
-    price: number;
+    Name: string;
+    Description: string;
+    Reward: number;
+    ratingReward: number;
+    EventID: number;
+    Employees: IEmployee[];
 }

@@ -7,7 +7,7 @@ export const eventsEmptyApi = emptySplitApi.injectEndpoints({
       query: () => "/event",
       providesTags: ["Events"],
     }),
-    addEmployee: build.mutation<IEvent, IEvent>({
+    addEvent: build.mutation<IEvent, IEvent>({
       query(body) {
         return {
           url: "/event",
@@ -21,4 +21,4 @@ export const eventsEmptyApi = emptySplitApi.injectEndpoints({
   overrideExisting: true,
 });
 
-export const { useGetEventsQuery, useAddEmployeeMutation } = eventsEmptyApi;
+export const { useGetEventsQuery, useAddEventMutation } = eventsEmptyApi;

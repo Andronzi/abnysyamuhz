@@ -6,4 +6,5 @@ export interface IEvent {
     Place: string;
     Date: string;
     Price: number;
+    IsActive: boolean;
 }
