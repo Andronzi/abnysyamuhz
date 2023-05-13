@@ -16,7 +16,8 @@ const Market = () => {
   }
 
   useEffect(() => {
-    getProducts(query.category);
+    const q: any = query;
+    getProducts(q.category);
   }, [query]);
 
   const categoryHandler = (e: any) => {
@@ -28,14 +29,25 @@ const Market = () => {
     <>
       <div className="p-4 mt-2">
         <ul className="flex text-white text-lg">
-          <li onClick={(e) => categoryHandler(e)}>Одежда</li>
-          <li className="ml-6" onClick={(e) => categoryHandler(e)}>
+          <li className="cursor-pointer" onClick={(e) => categoryHandler(e)}>
+            Одежда
+          </li>
+          <li
+            className="cursor-pointer ml-6"
+            onClick={(e) => categoryHandler(e)}
+          >
             Техника
           </li>
-          <li className="ml-6" onClick={(e) => categoryHandler(e)}>
+          <li
+            className="cursor-pointer ml-6"
+            onClick={(e) => categoryHandler(e)}
+          >
             Сувениры
           </li>
-          <li className="ml-6" onClick={(e) => categoryHandler(e)}>
+          <li
+            className="cursor-pointer ml-6"
+            onClick={(e) => categoryHandler(e)}
+          >
             Другое
           </li>
         </ul>
