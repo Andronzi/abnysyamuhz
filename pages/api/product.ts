@@ -9,103 +9,103 @@ export default function handler(
     const query = req.query;
     if (query.category === "Одежда") {
         res.status(200).json([{
-            src: "https://producttoday.ru/wp-content/uploads/2020/12/mailservice.jpg",
-            name: "Name",
-            price: 220
+            Src: "https://producttoday.ru/wp-content/uploads/2020/12/mailservice.jpg",
+            Name: "Name",
+            Price: 220
         },
         {
-            src: "https://producttoday.ru/wp-content/uploads/2020/12/mailservice.jpg",
-            name: "Name",
-            price: 220
+            Src: "https://producttoday.ru/wp-content/uploads/2020/12/mailservice.jpg",
+            Name: "Name",
+            Price: 220
         },
         {
-            src: "https://producttoday.ru/wp-content/uploads/2020/12/mailservice.jpg",
-            name: "Name",
-            price: 220
+            Src: "https://producttoday.ru/wp-content/uploads/2020/12/mailservice.jpg",
+            Name: "Name",
+            Price: 220
         },
         {
-            src: "https://producttoday.ru/wp-content/uploads/2020/12/mailservice.jpg",
-            name: "Name",
-            price: 220
+            Src: "https://producttoday.ru/wp-content/uploads/2020/12/mailservice.jpg",
+            Name: "Name",
+            Price: 220
         },
         {
-            src: "https://producttoday.ru/wp-content/uploads/2020/12/mailservice.jpg",
-            name: "Name",
-            price: 220
+            Src: "https://producttoday.ru/wp-content/uploads/2020/12/mailservice.jpg",
+            Name: "Name",
+            Price: 220
         },
         {
-            src: "https://producttoday.ru/wp-content/uploads/2020/12/mailservice.jpg",
-            name: "Name",
-            price: 220
+            Src: "https://producttoday.ru/wp-content/uploads/2020/12/mailservice.jpg",
+            Name: "Name",
+            Price: 220
         },
         {
-            src: "https://producttoday.ru/wp-content/uploads/2020/12/mailservice.jpg",
-            name: "Name",
-            price: 220
+            Src: "https://producttoday.ru/wp-content/uploads/2020/12/mailservice.jpg",
+            Name: "Name",
+            Price: 220
         },
         {
-            src: "https://producttoday.ru/wp-content/uploads/2020/12/mailservice.jpg",
-            name: "Name",
-            price: 220
+            Src: "https://producttoday.ru/wp-content/uploads/2020/12/mailservice.jpg",
+            Name: "Name",
+            Price: 220
         },
         {
-            src: "https://producttoday.ru/wp-content/uploads/2020/12/mailservice.jpg",
-            name: "Name",
-            price: 220
+            Src: "https://producttoday.ru/wp-content/uploads/2020/12/mailservice.jpg",
+            Name: "Name",
+            Price: 220
         },
         {
-            src: "https://producttoday.ru/wp-content/uploads/2020/12/mailservice.jpg",
-            name: "Name",
-            price: 220
+            Src: "https://producttoday.ru/wp-content/uploads/2020/12/mailservice.jpg",
+            Name: "Name",
+            Price: 220
         },
         {
-            src: "https://producttoday.ru/wp-content/uploads/2020/12/mailservice.jpg",
-            name: "Name",
-            price: 220
+            Src: "https://producttoday.ru/wp-content/uploads/2020/12/mailservice.jpg",
+            Name: "Name",
+            Price: 220
         },
         {
-            src: "https://producttoday.ru/wp-content/uploads/2020/12/mailservice.jpg",
-            name: "Name",
-            price: 220
+            Src: "https://producttoday.ru/wp-content/uploads/2020/12/mailservice.jpg",
+            Name: "Name",
+            Price: 220
         },
     ])
     } else if (query.category === "Техника") {
         res.status(200).json([
             {
-                src: "https://producttoday.ru/wp-content/uploads/2020/12/mailservice.jpg",
-                name: "Name",
-                price: 180
+                Src: "https://producttoday.ru/wp-content/uploads/2020/12/mailservice.jpg",
+                Name: "Name",
+                Price: 180
             },
             {
-                src: "https://producttoday.ru/wp-content/uploads/2020/12/mailservice.jpg",
-                name: "Name",
-                price: 180
+                Src: "https://producttoday.ru/wp-content/uploads/2020/12/mailservice.jpg",
+                Name: "Name",
+                Price: 180
             }
         ])
     } else if (query.category === "Сувениры") {
         res.status(200).json([
             {
-                src: "https://producttoday.ru/wp-content/uploads/2020/12/mailservice.jpg",
-                name: "Name",
-                price: 160
+                Src: "https://producttoday.ru/wp-content/uploads/2020/12/mailservice.jpg",
+                Name: "Name",
+                Price: 160
             },
             {
-                src: "https://producttoday.ru/wp-content/uploads/2020/12/mailservice.jpg",
-                name: "Name",
-                price: 160
+                Src: "https://producttoday.ru/wp-content/uploads/2020/12/mailservice.jpg",
+                Name: "Name",
+                Price: 160
             }
         ])
     } else {
         res.status(200).json([
             {
-                src: "https://producttoday.ru/wp-content/uploads/2020/12/mailservice.jpg",
-                name: "Name",
-                price: 100
+                Src: "https://producttoday.ru/wp-content/uploads/2020/12/mailservice.jpg",
+                Name: "Name",
+                Price: 100
             },
             {
-                src: "https://producttoday.ru/wp-content/uploads/2020/12/mailservice.jpg",
-                name: "Name",
-                price: 100
+                Src: "https://producttoday.ru/wp-content/uploads/2020/12/mailservice.jpg",
+                Name: "Name",
+                Price: 100
             }
         ])
     }

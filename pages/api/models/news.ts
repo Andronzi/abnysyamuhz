@@ -1,6 +1,6 @@
 export interface News {
-    src: string;
-    title: string;
-    description: string;
-    isMain?: boolean;
+    Src: string;
+    Title: string;
+    Description: string;
+    IsMain?: boolean;
 }

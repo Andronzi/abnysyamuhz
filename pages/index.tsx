@@ -29,7 +29,7 @@ const Home: NextPage = () => {
       </div>
       <ul className="product-list grid grid-cols-3 gap-4">
         {data?.map((news, index) => {
-          if (!news.isMain) {
+          if (!news.IsMain) {
             return (
               <li className="product-card mt-8" key={index}>
                 <News {...news} />
