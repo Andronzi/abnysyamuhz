@@ -1,3 +1,4 @@
+import Link from "next/link";
 import EventCard from "../components/EventCard";
 import { MainContent } from "../components/MainContent";
 import { useGetEventsQuery } from "../services/event/eventApi";
@@ -14,9 +15,11 @@ export const Events = () => {
       />
       <ul className="product-list grid grid-cols-4 gap-6 pb-4">
         {data?.map((event, index) => (
-          <li className="product-card mt-8" key={index}>
-            <EventCard isAdmin={false} {...event} />
-          </li>
+          <Link key={index} href="events/1">
+            <li className="cursor-pointer product-card mt-8">
+              <EventCard isAdmin={false} {...event} />
+            </li>
+          </Link>
         ))}
       </ul>
     </>
