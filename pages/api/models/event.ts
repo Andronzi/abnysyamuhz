@@ -1,6 +1,7 @@
 export interface IEvent {
-    Title: string;
-    Src: string;
+    Name: string;
+    Description: string;
+    ImageURL: string;
     Place: string;
     Date: Date;
     Price: number;
