@@ -4,10 +4,3 @@ export interface News {
     Description: string;
     IsMain?: boolean;
 }
-
-export const NewsObj = {
-    Src: "",
-    Title: "",
-    Description: "",
-    IsMain: false,
-}

@@ -16,7 +16,7 @@ export const employeeApi = emptySplitApi.injectEndpoints({
         addEmployee: build.mutation<void, EmployeeRequestBody>({
             query(body) {
                 return {
-                    url: "/employee",
+                    url: `/${endpoint}`,
                     method: "POST",
                     body
                 }
