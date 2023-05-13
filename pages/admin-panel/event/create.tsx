@@ -38,7 +38,7 @@ const EventForm = () => {
           size="lg"
           color="blue"
           placeholder="Введите название"
-          {...register("Title")}
+          {...register("Name")}
         />
         <Input
           size="lg"
