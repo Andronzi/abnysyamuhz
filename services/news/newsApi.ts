@@ -1,7 +1,7 @@
 import { News } from "../../pages/api/models/news";
-import { emptySplitApi } from "../emptySplitApi";
+import {realSplitApi} from "../realSplitApi";
 
-export const newsApi = emptySplitApi.injectEndpoints({
+export const newsApi = realSplitApi.injectEndpoints({
     endpoints: (build) => ({
         getNews: build.query<News[], void>({
             query: () => "/news",
