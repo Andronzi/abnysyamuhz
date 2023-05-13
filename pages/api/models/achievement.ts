@@ -1,5 +1,5 @@
 export interface Achievement {
-    src: string;
-    name: string;
-    date: Date;
+    Src: string;
+    Name: string;
+    Date: Date;
 }

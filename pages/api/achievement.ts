@@ -8,19 +8,19 @@ export default function handler(
 ) {
   res.status(200).json([
     {
-        src: "/achievement.svg",
-        name: "Сквозь дедлайны",
-        date: new Date()
+        Src: "/achievement.svg",
+        Name: "Сквозь дедлайны",
+        Date: new Date()
     },
     {
-        src: "/achievement.svg",
-        name: "Сквозь дедлайны",
-        date: new Date()
+        Src: "/achievement.svg",
+        Name: "Сквозь дедлайны",
+        Date: new Date()
     },
     {
-        src: "/achievement.svg",
-        name: "Сквозь дедлайны",
-        date: new Date()
+        Src: "/achievement.svg",
+        Name: "Сквозь дедлайны",
+        Date: new Date()
     }
   ])
 }

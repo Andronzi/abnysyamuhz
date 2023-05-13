@@ -39,7 +39,7 @@ const Home: NextPage = () => {
       </div>
       <ul className="product-list grid grid-cols-3 gap-4">
         {news.map((news, index) => {
-          if (!news.isMain) {
+          if (!news.IsMain) {
             // if (news.description.length > 40) {
             //   console.log(news.description.substring(0, 40) + "...");
             //   news.description = news.description.substring(0, 40) + "...";
