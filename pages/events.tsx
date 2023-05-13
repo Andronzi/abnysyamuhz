@@ -15,7 +15,7 @@ export const Events = () => {
       <ul className="product-list grid grid-cols-4 gap-6 pb-4">
         {data?.map((event, index) => (
           <li className="product-card mt-8" key={index}>
-            <EventCard {...event} />
+            <EventCard isAdmin={false} {...event} />
           </li>
         ))}
       </ul>

@@ -13,7 +13,7 @@ const News: FC<News & { isAdmin: boolean }> = ({
       src={ImageUrl}
       alt="Картинка новости"
     />
-    <div className="info py-2 h-60">
+    <div className="info py-2">
       <p className="text-xl text-white font-bold">{Title}</p>
       <p className="mt-3 text-white text-base font-regular h-20">{Body}</p>
       {!!isAdmin && (

@@ -3,6 +3,7 @@ import {
   AccordionBody,
   AccordionHeader,
 } from "@material-tailwind/react";
+import Link from "next/link";
 import { useState } from "react";
 import EventCard from "../../components/EventCard";
 import News from "../../components/News";
@@ -33,6 +34,11 @@ const AdminPanel = () => {
           <p className="text-white">Новости компании</p>
         </AccordionHeader>
         <AccordionBody>
+          <Link href="/news/create">
+            <button className="bg-blue-400 px-8 py-2 text-white rounded-md">
+              Создать новость
+            </button>
+          </Link>
           <ul className="product-list grid grid-cols-3 gap-4">
             {news?.map((news, index) => {
               if (!news.IsMain) {
@@ -53,6 +59,11 @@ const AdminPanel = () => {
           <p className="text-white">Мероприятия компании</p>
         </AccordionHeader>
         <AccordionBody>
+          <Link href="admin-panel/event/create">
+            <button className="bg-blue-400 px-8 py-2 text-white rounded-md">
+              Создать мероприятие
+            </button>
+          </Link>
           <ul className="product-list grid grid-cols-4 gap-6 pb-4">
             {events?.map((event, index) => (
               <li className="product-card mt-8" key={index}>
@@ -67,6 +78,11 @@ const AdminPanel = () => {
           <p className="text-white">Задачи компании</p>
         </AccordionHeader>
         <AccordionBody>
+          <Link href="admin-panel/task/create">
+            <button className="bg-blue-400 px-8 py-2 text-white rounded-md">
+              Создать задачу
+            </button>
+          </Link>
           <ul className="pb-4">
             {tasks?.map((task, index) => (
               <li className="product-card mt-4" key={index}>

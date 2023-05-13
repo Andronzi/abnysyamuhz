@@ -11,7 +11,6 @@ export const unitRealApi = realSplitApi.injectEndpoints({
         }),
         getUnit: build.query<IUnit, string>({
             query: (ID) => `/${endpoint}/${ID}`,
-            providesTags: ["Units"]
         }),
         addUnit: build.mutation<void, UnitRequestBody>({
             query(body) {
@@ -20,7 +19,8 @@ export const unitRealApi = realSplitApi.injectEndpoints({
                     method: "POST",
                     body
                 }
-            }
+            },
+            invalidatesTags: ["Units"]
         }),
         editUnit: build.mutation<IUnit, UnitRequestBody>({
             query(data) {

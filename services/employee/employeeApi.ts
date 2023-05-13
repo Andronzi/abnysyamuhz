@@ -11,7 +11,6 @@ export const employeeEmptyApi = emptySplitApi.injectEndpoints({
         }),
         getEmployee: build.query<IEmployee, string>({
             query: (ID) => `/${endpoint}/${ID}`,
-            providesTags: ["Employee"]
         }),
         addEmployee: build.mutation<void, EmployeeRequestBody>({
             query(body) {
