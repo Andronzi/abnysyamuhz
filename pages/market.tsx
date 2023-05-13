@@ -1,24 +1,10 @@
-import axios from "axios";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
 import ProductCard from "../components/ProductCard";
-import { Product } from "./api/models/product";
+import { useGetProductsQuery } from "../services/news/productApi";
 
 const Market = () => {
   const { push, query } = useRouter();
-  const [products, setProducts] = useState([] as Product[]);
-
-  async function getProducts(category: string) {
-    const products = await axios.get(
-      `http://localhost:3000/api/product?category=${category}`
-    );
-    setProducts(products.data);
-  }
-
-  useEffect(() => {
-    const q: any = query;
-    getProducts(q.category);
-  }, [query]);
+  const { data } = useGetProductsQuery(query.category as string);
 
   const categoryHandler = (e: any) => {
     const target = e.target as HTMLLIElement;
@@ -53,7 +39,7 @@ const Market = () => {
         </ul>
       </div>
       <ul className="h-screen mt-2 grid grid-cols-5 gap-x-6 gap-y-2">
-        {products.map((product, index) => (
+        {data?.map((product, index) => (
           <li className="cursor-pointer" key={index}>
             <ProductCard {...product} />
           </li>
