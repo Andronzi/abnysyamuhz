@@ -31,7 +31,7 @@ export const taskRealApi = realSplitApi.injectEndpoints({
                 body
               };
             },
-            invalidatesTags: ["Employee"],
+            invalidatesTags: ["Tasks", "Employee"],
           }),
           deleteTask: build.mutation<void, number>({
             query(ID) {

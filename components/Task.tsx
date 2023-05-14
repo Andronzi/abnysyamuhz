@@ -63,9 +63,9 @@ const TaskRow: FC<Task & { isAdmin: boolean }> = ({
             </Button>
             <Button
               className="w-full bg-red-500 shadow-red-500/20  hover:shadow-red-500/40 text-white rounded-md font-medium p-3 py-3 px-6"
-              onClick={() => {
+              onClick={async () => {
                 try {
-                  delTask(ID);
+                  await delTask(ID).unwrap();
                   toast.success("Задача успешно удалена");
                 } catch (err) {
                   console.log(err);
@@ -80,12 +80,18 @@ const TaskRow: FC<Task & { isAdmin: boolean }> = ({
         {taskButtonShow && (
           <Button
             className="ml-4"
-            onClick={() => {
-              startTask({
-                EmployeeID: employee?.ID,
-                TaskID: ID,
-                Status: "Started",
-              });
+            onClick={async () => {
+              try {
+                await startTask({
+                  EmployeeID: employee?.ID,
+                  TaskID: ID,
+                  Status: "Started",
+                }).unwrap();
+                toast.success("Задача добавлена");
+              } catch (err) {
+                console.log(err);
+                toast.error("Упс... Что-то пошло не так :(");
+              }
             }}
           >
             Приступить

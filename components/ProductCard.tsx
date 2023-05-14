@@ -24,15 +24,19 @@ const ProductCard: FC<Gift> = ({ ID, Src, Name, Price }) => {
         </div>
         <button
           className="w-full py-1.5 mt-2 bg-coral text-white flex justify-center rounded-md"
-          onClick={() => {
+          onClick={async () => {
             try {
-              buyGift({
+              await buyGift({
                 EmployeeID: 12,
                 GiftID: ID,
               }).unwrap();
               toast.success("Товар успешно добавлен");
-            } catch (err) {
-              toast.error("Упс... Что-то пошло не так :(");
+            } catch (err: any) {
+              if (err?.data === "not enough money") {
+                toast.error("На счету недостаточно средств");
+              } else {
+                toast.error("Упс... Что-то пошло не так :(");
+              }
             }
           }}
         >

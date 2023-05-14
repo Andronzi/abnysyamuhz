@@ -2,8 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { FC, PropsWithChildren } from "react";
 import { Toaster } from "react-hot-toast";
+import { useGetEmployeeQuery } from "../services/employee/employeeRealApi";
 
 const Layout: FC<PropsWithChildren<unknown>> = ({ children }) => {
+  const employee = useGetEmployeeQuery("12").data;
   return (
     <div className="bg-dark min-h-screen h-full">
       <Toaster />
@@ -19,7 +21,10 @@ const Layout: FC<PropsWithChildren<unknown>> = ({ children }) => {
             <Link className="nav__link text-md text-white ml-6" href="/staff">
               Сотрудники
             </Link>
-            <Link className="nav__link text-md text-white ml-6 disabled" href="#">
+            <Link
+              className="nav__link text-md text-white ml-6 disabled"
+              href="#"
+            >
               Бронь мест
             </Link>
             <Link className="nav__link text-md text-white ml-6" href="/market">
@@ -49,7 +54,7 @@ const Layout: FC<PropsWithChildren<unknown>> = ({ children }) => {
             </div>
             <div className="flex items-center ml-6">
               <Image src="/coin.svg" alt="Монетка" width={28} height={28} />
-              <p className="text-white text-lg">50</p>
+              <p className="text-white text-lg">{employee?.Balance}</p>
             </div>
             <Link href="/profile">
               <Image
