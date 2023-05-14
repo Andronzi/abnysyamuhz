@@ -11,7 +11,7 @@ import {
 
 const EventForm = () => {
   const { query } = useRouter();
-  const { data } = useGetEventQuery(query?.id!.toString());
+  const { data } = useGetEventQuery(query?.id?.toString() || "1");
   console.log(data);
 
   const {
