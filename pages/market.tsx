@@ -12,8 +12,6 @@ const Market = () => {
   const { data } = useGetGiftsQuery(category || "");
 
   const categoryHandler = (e: any) => {
-    console.log("Надо чет делать с категориями :)");
-
     const target = e.target as HTMLLIElement;
     push({ query: { ...query, category: target.innerText } });
   };
@@ -46,7 +44,7 @@ const Market = () => {
         </ul>
       </div>
       <ul className="h-full mt-2 grid grid-cols-5 gap-x-6 gap-y-2">
-        {data?.map((product, index) => (
+        {data?.filter(v => category ? v.Category === category : true)?.map((product, index) => (
           <li className="cursor-pointer" key={index}>
             <ProductCard {...product} />
           </li>
