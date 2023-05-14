@@ -10,6 +10,7 @@ export const newsRealApi = realSplitApi.injectEndpoints({
         }),
         getNewsSingle: build.query<News, string>({
             query: (ID) => `/news/${ID}`,
+            providesTags: ["News"]
         }),
         addNews: build.mutation<News, NewsRequest>({
             query(body) {

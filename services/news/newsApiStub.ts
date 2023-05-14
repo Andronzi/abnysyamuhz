@@ -1,7 +1,6 @@
 import { NewsRequest } from "../../pages/admin-panel/news/create";
 import { News } from "../../pages/api/models/news";
 import { emptySplitApi } from "../emptySplitApi";
-import {Employee} from "../../pages/api/models/employee";
 
 export const newsEmptyApi = emptySplitApi.injectEndpoints({
     endpoints: (build) => ({
