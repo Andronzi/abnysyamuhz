@@ -1,5 +1,5 @@
+import { Unit } from "../../pages/api/models/unit";
 import { emptySplitApi } from "../emptySplitApi";
-import {Unit} from "../../pages/api/models/unit";
 
 const endpoint = "unit";
 
@@ -27,7 +27,7 @@ export const unitEmptyApi = emptySplitApi.injectEndpoints({
                 const { ID, ...body} = data;
                 return {
                     url: `/${endpoint}/${ID}`,
-                    method: "PATCH",
+                    method: "PUT",
                     body
                 }
             },

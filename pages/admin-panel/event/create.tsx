@@ -46,6 +46,7 @@ const EventForm = () => {
           size="lg"
           color="blue"
           placeholder="Добавьте ссылочку на изображение"
+          {...register("ImageUrl")}
         />
         <Input
           size="lg"

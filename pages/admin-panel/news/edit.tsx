@@ -1,34 +1,40 @@
-import { Button, Card, Input, Typography } from "@material-tailwind/react";
+import {
+  Button,
+  Card,
+  Checkbox,
+  Input,
+  Typography,
+} from "@material-tailwind/react";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
+import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import {
-  EventRequest,
-  useEditEventMutation,
-  useGetEventQuery,
-} from "../../../services/event/eventRealApi";
+  useEditNewsMutation,
+  useGetSingleNewsQuery,
+} from "../../../services/news/newsRealApi";
+import { News } from "../../api/models/news";
 
 const EventForm = () => {
   const { query } = useRouter();
-  const { data } = useGetEventQuery(+query.id!);
-  console.log(data);
-
+  const { data } = useGetSingleNewsQuery(+query.id!);
   const {
     register,
     handleSubmit,
+    control,
     reset,
     formState: { errors },
-  } = useForm<EventRequest>();
+  } = useForm<News>();
 
   useEffect(() => {
-    console.log(data);
-    reset(data);
+    if (data) {
+      reset(data);
+    }
   }, [reset, data]);
-  const [editEvent] = useEditEventMutation();
-  const onSubmit: SubmitHandler<EventRequest> = async (data) => {
+  const [editNews] = useEditNewsMutation();
+  const onSubmit: SubmitHandler<News> = async (data) => {
     try {
-      await editEvent(data).unwrap();
+      await editNews(data).unwrap();
       toast.success("Мероприятие успешно добавлено");
     } catch (err) {
       console.log(err);
@@ -43,7 +49,7 @@ const EventForm = () => {
       className="p-8 max-w-md mx-auto rounded-lg"
     >
       <Typography variant="h4" className="text-center mb-6">
-        Изменить мероприятие
+        Добавить мероприятие
       </Typography>
       <Typography className="text-center mb-8">
         Enter your details to send news.
@@ -53,7 +59,7 @@ const EventForm = () => {
           size="lg"
           color="blue"
           placeholder="Введите название"
-          {...register("Name")}
+          {...register("Title")}
         />
         <Input
           size="lg"
@@ -65,24 +71,19 @@ const EventForm = () => {
           size="lg"
           color="blue"
           placeholder="Введите описание"
-          {...register("Description")}
+          {...register("Body")}
         />
-        <Input
-          size="lg"
-          color="blue"
-          placeholder="Укажите место, где будет проходить мероприятие"
-          {...register("Place")}
-        />
-        <Input
-          size="lg"
-          type="date"
-          color="blue"
-          placeholder="Enter Data"
-          {...register("Date")}
-        />
+        <div className="flex items-center">
+          <label>Сделать новостью дня</label>
+          <Controller
+            name="IsMain"
+            control={control}
+            render={({ field }) => <Checkbox {...field} value="false" />}
+          />
+        </div>
         {/* <Input size="lg" type="time" color="blue" placeholder="Enter Time" /> */}
         <Button type="submit" size="lg" className="mt-6 bg-blue-400">
-          Изменить
+          Send News
         </Button>
       </form>
     </Card>

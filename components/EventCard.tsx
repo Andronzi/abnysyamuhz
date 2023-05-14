@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
 import { FC } from "react";
 import toast from "react-hot-toast";
 import { IEvent } from "../pages/api/models/event";
@@ -12,6 +13,7 @@ const EventCard: FC<IEvent & { isAdmin: boolean }> = ({
   isAdmin,
 }) => {
   const [deleteEvent] = useDeleteEventMutation();
+  const router = useRouter();
   return (
     <>
       <p className="text-white text-2xl font-bold">{Name}</p>
@@ -43,8 +45,18 @@ const EventCard: FC<IEvent & { isAdmin: boolean }> = ({
         </button>
       )}
       {isAdmin && (
-        <div className="flex gap-4">
-          <button className="w-full py-1.5 mt-2 bg-amber-500	 text-white rounded-md font-medium">
+        <div className="flex gap-4" onClick={(e) => e.stopPropagation()}>
+          <button
+            className="w-full py-1.5 mt-2 bg-amber-500	 text-white rounded-md font-medium"
+            onClick={() => {
+              router.push({
+                pathname: "/admin-panel/event/edit",
+                query: {
+                  id: ID,
+                },
+              });
+            }}
+          >
             Изменить
           </button>
           <button

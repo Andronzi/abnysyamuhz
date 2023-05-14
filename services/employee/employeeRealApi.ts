@@ -1,5 +1,5 @@
+import { Employee } from "../../pages/api/models/employee";
 import { realSplitApi } from "../realSplitApi";
-import {Employee} from "../../pages/api/models/employee";
 
 const endpoint = "employee";
 
@@ -27,7 +27,7 @@ export const employeeRealApi = realSplitApi.injectEndpoints({
                 const { ID, ...body} = data;
                 return {
                     url: `/${endpoint}/${ID}`,
-                    method: "PATCH",
+                    method: "PUT",
                     body
                 }
             },

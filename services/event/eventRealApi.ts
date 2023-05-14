@@ -11,6 +11,9 @@ export const eventsRealApi = realSplitApi.injectEndpoints({
       query: () => "/event",
       providesTags: ["Events"],
     }),
+    getEvent: build.query<IEvent, number>({
+      query: (ID) => `/event/${ID}`,
+    }),
     addEvent: build.mutation<IEvent, EventRequest>({
         query(body) {
           return {
@@ -21,6 +24,17 @@ export const eventsRealApi = realSplitApi.injectEndpoints({
         },
         invalidatesTags: ["Events"],
       }),
+      editEvent: build.mutation<IEvent, EventRequest>({
+        query(data) {
+            const { ID, ...body} = data;
+            return {
+                url: `/event/${ID}`,
+                method: "PUT",
+                body
+            }
+        },
+        invalidatesTags: ["Events"]
+    }),
       deleteEvent: build.mutation<void, number>({
         query(ID) {
             return {
@@ -34,4 +48,4 @@ export const eventsRealApi = realSplitApi.injectEndpoints({
   overrideExisting: true,
 });
 
-export const { useGetEventsQuery, useAddEventMutation, useDeleteEventMutation } = eventsRealApi;
+export const { useGetEventsQuery, useGetEventQuery, useAddEventMutation, useEditEventMutation, useDeleteEventMutation } = eventsRealApi;

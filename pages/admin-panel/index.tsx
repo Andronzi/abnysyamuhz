@@ -4,6 +4,7 @@ import {
   AccordionHeader,
 } from "@material-tailwind/react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useState } from "react";
 import EventCard from "../../components/EventCard";
 import NewsCard from "../../components/News";
@@ -13,6 +14,7 @@ import { useGetNewsQuery } from "../../services/news/newsRealApi";
 import { useGetTasksQuery } from "../../services/tasks/taskRealApi";
 
 const AdminPanel = () => {
+  const router = useRouter();
   const news = useGetNewsQuery().data;
   const events = useGetEventsQuery().data;
   const tasks = useGetTasksQuery().data;
@@ -62,7 +64,16 @@ const AdminPanel = () => {
           </Link>
           <ul className="product-list grid grid-cols-4 gap-6 pb-4">
             {events?.map((event, index) => (
-              <li className="product-card mt-8" key={index}>
+              <li
+                key={index}
+                className="cursor-pointer product-card mt-8"
+                onClick={() => {
+                  router.push({
+                    pathname: "events/1",
+                    query: { isAdmin: true },
+                  });
+                }}
+              >
                 <EventCard {...event} isAdmin={true} />
               </li>
             ))}

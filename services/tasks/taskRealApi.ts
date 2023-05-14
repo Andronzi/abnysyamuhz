@@ -1,7 +1,6 @@
 import { Task } from "../../pages/api/models/task";
 import { realSplitApi } from "../realSplitApi";
 
-
 export type TaskRequest = Omit<Task, "ID">;
 
 export const taskRealApi = realSplitApi.injectEndpoints({
@@ -33,4 +32,4 @@ export const taskRealApi = realSplitApi.injectEndpoints({
     overrideExisting: true
 })
 
-export const { useGetTasksQuery } = taskRealApi;
+export const { useGetTasksQuery, useAddTaskMutation } = taskRealApi;

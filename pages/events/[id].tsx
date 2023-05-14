@@ -1,7 +1,10 @@
+import { Button } from "@material-tailwind/react";
+import { useRouter } from "next/router";
 import TaskRow from "../../components/Task";
-import { useGetTasksQuery } from "../../services/tasks/taskApiStub";
+import { useGetTasksQuery } from "../../services/tasks/taskRealApi";
 
 const EventPage = () => {
+  const router = useRouter();
   const tasks = useGetTasksQuery().data;
   return (
     <>
@@ -23,9 +26,24 @@ const EventPage = () => {
           </p>
         </div>
         <ul className="ml-8 pb-4 basis-1/2">
+          {!!router?.query.isAdmin && (
+            <Button
+              className="px-6 py-3 mt-4"
+              onClick={() => {
+                router.push({
+                  pathname: "../admin-panel/task/create",
+                  query: {
+                    eventID: router.query.id,
+                  },
+                });
+              }}
+            >
+              Добавить
+            </Button>
+          )}
           {tasks?.map((task, index) => (
             <li className="product-card mt-4" key={index}>
-              <TaskRow isAdmin={false} {...task} />
+              <TaskRow isAdmin={!!router?.query.isAdmin || false} {...task} />
             </li>
           ))}
         </ul>

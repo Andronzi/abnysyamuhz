@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import { FC } from "react";
 import toast from "react-hot-toast";
 import { News } from "../pages/api/models/news";
@@ -10,6 +11,7 @@ const NewsCard: FC<News & { isAdmin: boolean }> = ({
   Body,
   isAdmin,
 }) => {
+  const router = useRouter();
   const [deleteNews] = useDeleteNewsMutation();
   return (
     <div className="cursor-pointer">
@@ -23,7 +25,17 @@ const NewsCard: FC<News & { isAdmin: boolean }> = ({
         <p className="mt-3 text-white text-base font-regular h-20">{Body}</p>
         {!!isAdmin && (
           <div className="flex gap-4 items-center mt-2">
-            <button className="w-full py-1.5 bg-amber-500 text-white rounded-md font-medium p-3">
+            <button
+              className="w-full py-1.5 bg-amber-500 text-white rounded-md font-medium p-3"
+              onClick={() => {
+                router.push({
+                  pathname: "/admin-panel/news/edit",
+                  query: {
+                    id: ID,
+                  },
+                });
+              }}
+            >
               Изменить
             </button>
             <button
