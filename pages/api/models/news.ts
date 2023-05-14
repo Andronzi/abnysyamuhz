@@ -6,6 +6,6 @@ export interface News {
     Title: string;
     Body: string;
     IsMain?: boolean;
-    EventID: number;
-    Event: IEvent;
+    EventID?: number;
+    Event?: IEvent;
 }
