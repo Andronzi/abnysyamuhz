@@ -47,7 +47,7 @@ const EventCard: FC<IEvent & { isAdmin: boolean }> = ({
         </button>
       )}
       {isAdmin && (
-        <div className="flex gap-4" onClick={(e) => e.stopPropagation()}>
+        <div className="flex gap-4 mt-2" onClick={(e) => e.stopPropagation()}>
           <Button
             className="w-full bg-amber-500 shadow-amber-500/20 hover:shadow-amber-500/40 text-white rounded-md font-medium py-3 px-6"
             onClick={() => {

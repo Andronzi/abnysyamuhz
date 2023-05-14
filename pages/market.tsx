@@ -4,13 +4,18 @@ import { useGetGiftsQuery } from "../services/gift/giftRealApi";
 
 const Market = () => {
   const { push, query } = useRouter();
-  const { data } = useGetGiftsQuery();
+  let category = query?.category;
+
+  if (typeof category !== "string") {
+    category = "";
+  }
+  const { data } = useGetGiftsQuery(category || "");
 
   const categoryHandler = (e: any) => {
     console.log("Надо чет делать с категориями :)");
 
-    // const target = e.target as HTMLLIElement;
-    // push({ query: { ...query, category: target.innerText } });
+    const target = e.target as HTMLLIElement;
+    push({ query: { ...query, category: target.innerText } });
   };
 
   return (
