@@ -11,13 +11,13 @@ import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import {
   useEditNewsMutation,
-  useGetSingleNewsQuery,
+  useGetNewsSingleQuery,
 } from "../../../services/news/newsRealApi";
 import { News } from "../../api/models/news";
 
 const EventForm = () => {
   const { query } = useRouter();
-  const { data } = useGetSingleNewsQuery(+query?.id!);
+  const { data } = useGetNewsSingleQuery(query.id?.toString() || "1");
   const {
     register,
     handleSubmit,

@@ -57,3 +57,18 @@ body {
 .cringe-text {
   -webkit-text-stroke: 1px white;
 }
+
+.link {
+  color: #007bff; /* цвет текста ссылки */
+  text-decoration: none; /* убираем подчеркивание ссылки */
+  transition: all 0.3s ease-in-out; /* плавное изменение стиля при наведении */
+}
+
+.link:hover {
+  color: #0056b3; /* цвет текста ссылки при наведении */
+  text-decoration: underline; /* добавляем подчеркивание при наведении */
+}
+
+.balance {
+  float: right;
+}
