@@ -44,10 +44,10 @@ const NewsForm = () => {
       className="p-8 max-w-md mx-auto rounded-lg"
     >
       <Typography variant="h4" className="text-center mb-6">
-        Add News
+        Создать новость
       </Typography>
       <Typography className="text-center mb-8">
-        Enter your details to send news.
+        Введите детали для добавления новости
       </Typography>
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6">
         <Input
@@ -77,7 +77,7 @@ const NewsForm = () => {
           />
         </div>
         <Button type="submit" size="lg" className="bg-blue-400">
-          Send News
+          Добавить
         </Button>
       </form>
     </Card>
