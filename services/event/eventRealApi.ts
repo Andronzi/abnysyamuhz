@@ -11,7 +11,7 @@ export const eventsRealApi = realSplitApi.injectEndpoints({
       query: () => "/event",
       providesTags: ["Events"],
     }),
-    getEvent: build.query<IEvent, number>({
+    getEvent: build.query<IEvent, string>({
       query: (ID) => `/event/${ID}`,
     }),
     addEvent: build.mutation<IEvent, EventRequest>({

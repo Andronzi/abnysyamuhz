@@ -1,3 +1,5 @@
+import {Task} from "./task";
+
 export interface IEvent {
     ID: number;
     Name: string;
@@ -7,4 +9,6 @@ export interface IEvent {
     Date: string;
     Price: number;
     IsActive: boolean;
+
+    Tasks?: Task[];
 }
