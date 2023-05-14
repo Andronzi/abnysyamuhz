@@ -15,9 +15,7 @@ const EventPage = () => {
         <h1 className="absolute text-coral text-6xl font-bold top-4 left-4 drop-shadow-lg">
           {news?.Title}
         </h1>
-        <p className="text-white mt-6">
-          {news?.Body}{" "}
-        </p>
+        <p className="text-white mt-6">{news?.Body} </p>
       </div>
       <div className="flex flex-row justify-between">
         <div className="basis-2/5 z-20 ml-1">
@@ -33,9 +31,7 @@ const EventPage = () => {
               />
             </button>
           )}
-          <p className="text-white -mt-12">
-            {news?.Event?.Description}
-          </p>
+          <p className="text-white -mt-12">{news?.Event?.Description}</p>
         </div>
         <div className="basis-3/5 z-20 -mt-12 ml-1">
           <p className="cringe-text text-transparent text-5xl font-bold text-right tracking-wider">

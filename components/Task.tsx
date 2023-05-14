@@ -1,7 +1,7 @@
 import { Button } from "@material-tailwind/react";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { Task } from "../pages/api/models/task";
 import { useGetEmployeeQuery } from "../services/employee/employeeRealApi";
@@ -14,9 +14,18 @@ const TaskRow: FC<Task & { isAdmin: boolean }> = ({
   Reward,
   isAdmin,
 }) => {
+  const [taskButtonShow, setTaskButtonShow] = useState(false);
   const router = useRouter();
   const [delTask] = useDelTaskMutation();
   const employee = useGetEmployeeQuery("12").data;
+
+  useEffect(() => {
+    if (employee?.Tasks?.length! > 0 && ID > 0) {
+      setTaskButtonShow(
+        !employee?.Tasks.filter((task) => task.ID === ID).length && !isAdmin
+      );
+    }
+  }, [ID, employee, isAdmin]);
 
   return (
     <div className="flex justify-between items-center">
@@ -64,10 +73,7 @@ const TaskRow: FC<Task & { isAdmin: boolean }> = ({
             </Button>
           </div>
         )}
-        {!isAdmin &&
-          !employee?.Tasks.filter((task) => task.ID === ID).length && (
-            <Button className="ml-4">Приступить</Button>
-          )}
+        {taskButtonShow && <Button className="ml-4">Приступить</Button>}
       </div>
     </div>
   );
