@@ -11,6 +11,7 @@ const EventCard: FC<IEvent & { isAdmin: boolean }> = ({
   Place,
   Date,
   isAdmin,
+  Price
 }) => {
   const [deleteEvent] = useDeleteEventMutation();
   const router = useRouter();
@@ -37,7 +38,7 @@ const EventCard: FC<IEvent & { isAdmin: boolean }> = ({
       </p>
       <p className="text-white text-md flex">
         <Image src="/price.svg" alt="Приз" width={20} height={20} />
-        <span className="ml-2">1000</span>
+        <span className="ml-2">{Price}</span>
       </p>
       {!isAdmin && (
         <button className="w-full py-1.5 mt-2 bg-coral text-white rounded-md font-medium">

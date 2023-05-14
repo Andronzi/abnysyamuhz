@@ -64,7 +64,9 @@ const Staff = () => {
               <AccordionHeader onClick={() => handleOpen(4)}>
                 Отдел аналитики
               </AccordionHeader>
-              <AccordionBody className={"p-2"}>Команда аналитики</AccordionBody>
+              <AccordionBody className={"p-2"}>
+                Команда аналитики
+              </AccordionBody>
             </Accordion>
           </AccordionBody>
         </Accordion>
