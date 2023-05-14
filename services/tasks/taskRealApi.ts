@@ -9,6 +9,10 @@ export const taskRealApi = realSplitApi.injectEndpoints({
             query: () => "/task",
             providesTags: ["Tasks"]
         }),
+        getTask: build.query<Task, number>({
+          query: (id) => `/task/${id}`,
+          providesTags: ["Tasks"]
+      }),
         addTask: build.mutation<Task, TaskRequest>({
             query(body) {
               return {
@@ -27,9 +31,29 @@ export const taskRealApi = realSplitApi.injectEndpoints({
                 }
             },
             invalidatesTags: ["Tasks"]
-        }), 
+          }), 
+          editTask: build.mutation<Task, Task>({
+            query(data) {
+            const { ID, ...body} = data;
+              return {
+                url: `/task/${ID}`,
+                method: "PUT",
+                body,
+              };
+            },
+            invalidatesTags: ["Tasks"],
+          }),
+          delTask: build.mutation<void, number>({
+            query(ID) {
+                return {
+                    url: `/task/${ID}`,
+                    method: "DELETE",
+                }
+            },
+            invalidatesTags: ["Tasks"]
+          }),
     }),
     overrideExisting: true
 })
 
-export const { useGetTasksQuery, useAddTaskMutation } = taskRealApi;
+export const { useGetTasksQuery, useGetTaskQuery, useAddTaskMutation, useEditTaskMutation, useDelTaskMutation } = taskRealApi;

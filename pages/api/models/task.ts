@@ -1,6 +1,7 @@
-import {Employee} from "./employee";
+import { Employee } from "./employee";
 
 export interface Task {
+    ID: number;
     Name: string;
     Description: string;
     Reward: number;
