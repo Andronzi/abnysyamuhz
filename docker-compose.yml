@@ -6,7 +6,6 @@ services:
     image: somnoynadno/debug-image:v1.1.1
     volumes:
       - .:/app
-    command: npm run dev
     ports:
       - "3000:3000"
     environment:
