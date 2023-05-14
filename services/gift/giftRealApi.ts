@@ -15,7 +15,7 @@ export const giftRealApi = realSplitApi.injectEndpoints({
                 body,
               };
             },
-            invalidatesTags: ["Gifts"],
+            invalidatesTags: ["Gifts", "Employee"],
           }),
     }),
     overrideExisting: true
