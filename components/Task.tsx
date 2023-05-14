@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { FC } from "react";
 import { toast } from "react-hot-toast";
 import { Task } from "../pages/api/models/task";
+import { useGetEmployeeQuery } from "../services/employee/employeeRealApi";
 import { useDelTaskMutation } from "../services/tasks/taskRealApi";
 
 const TaskRow: FC<Task & { isAdmin: boolean }> = ({
@@ -15,6 +16,7 @@ const TaskRow: FC<Task & { isAdmin: boolean }> = ({
 }) => {
   const router = useRouter();
   const [delTask] = useDelTaskMutation();
+  const employee = useGetEmployeeQuery("12").data;
 
   return (
     <div className="flex justify-between items-center">
@@ -62,6 +64,10 @@ const TaskRow: FC<Task & { isAdmin: boolean }> = ({
             </Button>
           </div>
         )}
+        {!isAdmin &&
+          !employee?.Tasks.filter((task) => task.ID === ID).length && (
+            <Button className="ml-4">Приступить</Button>
+          )}
       </div>
     </div>
   );
