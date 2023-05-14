@@ -22,7 +22,7 @@ const NewsCard: FC<News & { isAdmin: boolean }> = ({
         alt="Картинка новости"
         onClick={() => {
           // @ts-ignore
-          window.location = `https://samkokat.somnoynadno.ru/news/${ID}`;
+          window.location = `https://samokat.somnoynadno.ru/news/${ID}`;
         }}
       />
       <div className="info py-2">
