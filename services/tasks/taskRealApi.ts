@@ -23,11 +23,12 @@ export const taskRealApi = realSplitApi.injectEndpoints({
             },
             invalidatesTags: ["Tasks"],
           }),
-          startTask: build.mutation<Task, string>({
-            query(id) {
+          startTask: build.mutation<Task, any>({
+            query(body) {
               return {
-                url: `/task/${id}/start`,
+                url: `/task/start`,
                 method: "POST",
+                body
               };
             },
             invalidatesTags: ["Employee"],

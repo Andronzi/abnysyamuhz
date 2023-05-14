@@ -5,7 +5,10 @@ import { FC, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { Task } from "../pages/api/models/task";
 import { useGetEmployeeQuery } from "../services/employee/employeeRealApi";
-import { useDelTaskMutation } from "../services/tasks/taskRealApi";
+import {
+  useDelTaskMutation,
+  useStartTaskMutation,
+} from "../services/tasks/taskRealApi";
 
 const TaskRow: FC<Task & { isAdmin: boolean }> = ({
   ID,
@@ -18,6 +21,7 @@ const TaskRow: FC<Task & { isAdmin: boolean }> = ({
   const router = useRouter();
   const [delTask] = useDelTaskMutation();
   const employee = useGetEmployeeQuery("12").data;
+  const [startTask] = useStartTaskMutation();
 
   useEffect(() => {
     if (employee?.Tasks?.length! > 0 && ID > 0) {
@@ -73,7 +77,20 @@ const TaskRow: FC<Task & { isAdmin: boolean }> = ({
             </Button>
           </div>
         )}
-        {taskButtonShow && <Button className="ml-4">Приступить</Button>}
+        {taskButtonShow && (
+          <Button
+            className="ml-4"
+            onClick={() => {
+              startTask({
+                EmployeeID: employee?.ID,
+                TaskID: ID,
+                Status: "Started",
+              });
+            }}
+          >
+            Приступить
+          </Button>
+        )}
       </div>
     </div>
   );
