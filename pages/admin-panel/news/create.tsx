@@ -30,7 +30,7 @@ const NewsForm = () => {
   const onSubmit: SubmitHandler<NewsRequest> = async (data) => {
     try {
       await addNews(data).unwrap();
-      toast.success("Мероприятие успешно добавлено");
+      toast.success("Новость успешно добавлено");
     } catch (err) {
       console.log(err);
       toast.error("Упс... Что-то пошло не так :(");

@@ -479,6 +479,10 @@
 "@next/swc-win32-x64-msvc@13.4.2":
   "integrity" "sha512-O7bort1Vld00cu8g0jHZq3cbSTUNMohOEvYqsqE10+yfohhdPHzvzO+ziJRz4Dyyr/fYKREwS7gR4JC0soSOMw=="
   "resolved" "https://registry.npmjs.org/@next/swc-win32-x64-msvc/-/swc-win32-x64-msvc-13.4.2.tgz"
+
+"@next/swc-linux-x64-musl@13.4.2":
+  "integrity" "sha512-ZWVC72x0lW4aj44e3khvBrj2oSYj1bD0jESmyah3zG/3DplEy/FOtYkMzbMjHTdDSheso7zH8GIlW6CDQnKhmQ=="
+  "resolved" "https://registry.npmjs.org/@next/swc-linux-x64-musl/-/swc-linux-x64-musl-13.4.2.tgz"
   "version" "13.4.2"
 
 "@nodelib/fs.scandir@2.1.5":

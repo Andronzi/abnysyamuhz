@@ -8,6 +8,9 @@ export const newsEmptyApi = emptySplitApi.injectEndpoints({
             query: () => "/news",
             providesTags: ["News"]
         }),
+        getNewsSingle: build.query<News, string>({
+            query: (ID) => `/news/${ID}`,
+        }),
         addNews: build.mutation<News, NewsRequest>({
             query(body) {
               return {
@@ -22,4 +25,4 @@ export const newsEmptyApi = emptySplitApi.injectEndpoints({
     overrideExisting: true
 })
 
-export const { useGetNewsQuery, useAddNewsMutation } = newsEmptyApi;
+export const { useGetNewsQuery, useAddNewsMutation, useGetNewsSingleQuery } = newsEmptyApi;

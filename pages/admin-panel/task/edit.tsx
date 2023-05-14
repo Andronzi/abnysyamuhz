@@ -1,24 +1,38 @@
 import { Button, Card, Input, Typography } from "@material-tailwind/react";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { useAddTaskMutation } from "../../../services/tasks/taskRealApi";
+import {
+  useEditTaskMutation,
+  useGetTaskQuery,
+} from "../../../services/tasks/taskRealApi";
 import { Task } from "../../api/models/task";
 
 const EventForm = () => {
   const {
     register,
+    reset,
     handleSubmit,
+    watch,
     formState: { errors },
   } = useForm<Task>();
   const { query } = useRouter();
-  const [addTask] = useAddTaskMutation();
-  const [price, setPrice] = useState(150);
+  const { data } = useGetTaskQuery(+query?.id!);
+  const [editTask] = useEditTaskMutation();
+  const reward = watch("Reward");
+  const [price, setPrice] = useState<number | undefined>(undefined);
 
   const handlePriceChange = (event: { target: { value: any } }) => {
     setPrice(event.target.value);
   };
+
+  useEffect(() => {
+    if (data) {
+      setPrice(data.Reward);
+      reset(data);
+    }
+  }, [reset, data]);
 
   const onSubmit: SubmitHandler<Task> = async (data) => {
     if (query.eventID) {
@@ -27,7 +41,7 @@ const EventForm = () => {
 
     data.Reward = +data.Reward;
     try {
-      addTask(data).unwrap();
+      editTask(data).unwrap();
       toast.success("Задача успешно добавлена");
     } catch (err) {
       console.log(err);
@@ -42,10 +56,10 @@ const EventForm = () => {
       className="p-8 max-w-md mx-auto rounded-lg"
     >
       <Typography variant="h4" className="text-center mb-6">
-        Добавить задачу
+        Редактировать задачу
       </Typography>
       <Typography className="text-center mb-8">
-        Укажите, пожалуйста, детали для добавления задачи
+        Укажите, пожалуйста, детали для редактирования задачи
       </Typography>
       <form className="flex flex-col gap-6" onSubmit={handleSubmit(onSubmit)}>
         <label>
@@ -67,7 +81,6 @@ const EventForm = () => {
             min="0"
             max="300"
             step={10}
-            value={price}
             {...register("Reward")}
             onChange={handlePriceChange}
             className="w-full"
@@ -79,7 +92,7 @@ const EventForm = () => {
 					<Input size="lg" type="time" placeholder="Enter Time" />
 				</div> */}
         <Button className="bg-blue-400" type="submit">
-          Add Task
+          Изменить
         </Button>
       </form>
     </Card>
