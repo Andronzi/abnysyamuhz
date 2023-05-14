@@ -46,7 +46,7 @@ const EventForm = () => {
         Изменить мероприятие
       </Typography>
       <Typography className="text-center mb-8">
-        Enter your details to send news.
+        Введите детали для изменения мероприятия
       </Typography>
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6">
         <Input

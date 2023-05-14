@@ -30,10 +30,10 @@ const EventForm = () => {
       className="p-8 max-w-md mx-auto rounded-lg"
     >
       <Typography variant="h4" className="text-center mb-6">
-        Добавить мероприятие
+        Создать мероприятие
       </Typography>
       <Typography className="text-center mb-8">
-        Enter your details to send news.
+        Опишите детали для добавления мероприятия
       </Typography>
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6">
         <Input
@@ -69,7 +69,7 @@ const EventForm = () => {
         />
         {/* <Input size="lg" type="time" color="blue" placeholder="Enter Time" /> */}
         <Button type="submit" size="lg" className="mt-6 bg-blue-400">
-          Send News
+          Добавить
         </Button>
       </form>
     </Card>
