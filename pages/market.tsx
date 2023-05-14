@@ -46,7 +46,7 @@ const Market = () => {
         </ul>
       </div>
       <ul className="h-full mt-2 grid grid-cols-5 gap-x-6 gap-y-2">
-        {data?.map((product, index) => (
+        {data?.filter(v => category ? v.Category === category : true)?.map((product, index) => (
           <li className="cursor-pointer" key={index}>
             <ProductCard {...product} />
           </li>
