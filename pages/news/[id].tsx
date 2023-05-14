@@ -20,7 +20,13 @@ const EventPage = () => {
         <div className="basis-2/5 z-20 -mt-32 ml-1">
           <button className="flex items-center relative text-white border-2 pl-10 py-3 pr-2 text-2xl rounded-full border-white mb-4">
             ЗАРЕГИСТРИРОВАТЬСЯ
-            <Image src="/arrow.svg" className="ml-6" width={42} height={42} />
+            <Image
+              alt="Картинка ссылочки"
+              src="/arrow.svg"
+              className="ml-6"
+              width={42}
+              height={42}
+            />
           </button>
           <p className="text-white">
             Участники получат возможность узнать : о последних тенденциях в
