@@ -3,7 +3,7 @@ version: '3.8'
 
 services:
   web:
-    image: somnoynadno/debug-image:v1.2.1
+    image: somnoynadno/debug-image:v1.2.2
     volumes:
       - .:/app
     ports:
