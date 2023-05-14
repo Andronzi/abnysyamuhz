@@ -12,8 +12,6 @@ const Market = () => {
   const { data } = useGetGiftsQuery(category || "");
 
   const categoryHandler = (e: any) => {
-    console.log("Надо чет делать с категориями :)");
-
     const target = e.target as HTMLLIElement;
     push({ query: { ...query, category: target.innerText } });
   };
