@@ -20,8 +20,10 @@ const NewsCard: FC<News & { isAdmin: boolean }> = ({
         className="object-cover h-44 w-full rounded-md"
         src={ImageUrl}
         alt="Картинка новости"
-        onClick={() => { // @ts-ignore
-            window.location = `https://samkokat.somnoynadno.ru/news/${ID}`}}
+        onClick={() => {
+          // @ts-ignore
+          window.location = `https://samkokat.somnoynadno.ru/news/${ID}`;
+        }}
       />
       <div className="info py-2">
         <p className="text-xl text-white font-bold mb-6">{Title}</p>
