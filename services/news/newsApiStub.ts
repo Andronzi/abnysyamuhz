@@ -1,12 +1,16 @@
 import { NewsRequest } from "../../pages/admin-panel/news/create";
 import { News } from "../../pages/api/models/news";
 import { emptySplitApi } from "../emptySplitApi";
+import {Employee} from "../../pages/api/models/employee";
 
 export const newsEmptyApi = emptySplitApi.injectEndpoints({
     endpoints: (build) => ({
         getNews: build.query<News[], void>({
             query: () => "/news",
             providesTags: ["News"]
+        }),
+        getNewsSingle: build.query<News, string>({
+            query: (ID) => `/news/${ID}`,
         }),
         addNews: build.mutation<News, NewsRequest>({
             query(body) {
@@ -22,4 +26,4 @@ export const newsEmptyApi = emptySplitApi.injectEndpoints({
     overrideExisting: true
 })
 
-export const { useGetNewsQuery, useAddNewsMutation } = newsEmptyApi;
+export const { useGetNewsQuery, useAddNewsMutation, useGetNewsSingleQuery } = newsEmptyApi;

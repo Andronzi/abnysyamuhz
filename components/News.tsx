@@ -19,11 +19,13 @@ const NewsCard: FC<News & { isAdmin: boolean }> = ({
         className="object-cover h-44 w-full rounded-md"
         src={ImageUrl}
         alt="Картинка новости"
+        onClick={() => { // @ts-ignore
+            window.location = `https://samkokat.somnoynadno.ru/news/${ID}`}}
       />
       <div className="info py-2">
-        <p className="text-xl text-white font-bold">{Title}</p>
+        <p className="text-xl text-white font-bold mb-6">{Title}</p>
         <p className="mt-3 text-white text-base font-regular h-20">{Body}</p>
-        {!!isAdmin && (
+        {isAdmin && (
           <div className="flex gap-4 items-center mt-2">
             <button
               className="w-full py-1.5 bg-amber-500 text-white rounded-md font-medium p-3"
