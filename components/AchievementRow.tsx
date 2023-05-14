@@ -14,7 +14,7 @@ const AchievementRow: FC<Badge> = ({ ImageURL, Name, CreatedAt }) => (
       />
       <p className="mt-1 text-center text-white font-medium text-lg">{Name}</p>
     </div>
-    <p className="mt-1 text-center text-white text-md">{CreatedAt}</p>
+    <p className="mt-1 text-center text-white text-md">{CreatedAt.split("T")[0]}</p>
   </div>
 );
 

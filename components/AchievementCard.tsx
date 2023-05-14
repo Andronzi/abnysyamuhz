@@ -12,7 +12,7 @@ const AchievementCard: FC<Badge> = ({ ImageURL, Name, CreatedAt }) => (
       height={128}
     />
     <p className="mt-1 text-center text-white font-medium">{Name}</p>
-    <p className="mt-1 text-center text-white">{CreatedAt}</p>
+    <p className="mt-1 text-center text-white">{CreatedAt.split("T")[0]}</p>
   </div>
 );
 
