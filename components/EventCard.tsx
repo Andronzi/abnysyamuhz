@@ -63,9 +63,9 @@ const EventCard: FC<IEvent & { isAdmin: boolean }> = ({
           </Button>
           <Button
             className="w-full bg-red-500 shadow-red-500/20 hover:shadow-red-500/40 text-white rounded-md font-medium p-3 py-3 px-6"
-            onClick={() => {
+            onClick={async () => {
               try {
-                deleteEvent(ID);
+                await deleteEvent(ID);
                 toast.success("Мероприятие успешно удалено");
               } catch (err) {
                 console.log(err);

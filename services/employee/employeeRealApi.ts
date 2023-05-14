@@ -11,6 +11,7 @@ export const employeeRealApi = realSplitApi.injectEndpoints({
         }),
         getEmployee: build.query<Employee, string>({
             query: (ID) => `/${endpoint}/${ID}`,
+            providesTags: ["Employee"]
         }),
         addEmployee: build.mutation<void, Employee>({
             query(body) {

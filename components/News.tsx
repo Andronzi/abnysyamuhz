@@ -45,9 +45,9 @@ const NewsCard: FC<News & { isAdmin: boolean }> = ({
             </Button>
             <Button
               className="w-full bg-red-500 shadow-red-500/20 hover:shadow-red-500/40 text-white rounded-md font-medium p-3 py-3 px-6"
-              onClick={() => {
+              onClick={async () => {
                 try {
-                  deleteNews(ID).unwrap();
+                  await deleteNews(ID).unwrap();
                   toast.success("Новость успешно удалена");
                 } catch (err) {
                   console.log(err);

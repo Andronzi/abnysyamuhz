@@ -24,7 +24,7 @@ const TaskRow: FC<Task & { isAdmin: boolean }> = ({
   const [startTask] = useStartTaskMutation();
 
   useEffect(() => {
-    if (employee?.Tasks?.length! > 0 && ID > 0) {
+    if (employee && ID > 0) {
       setTaskButtonShow(
         !employee?.Tasks.filter((task) => task.ID === ID).length && !isAdmin
       );

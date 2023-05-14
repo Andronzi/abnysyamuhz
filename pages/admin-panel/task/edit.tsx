@@ -41,7 +41,7 @@ const EventForm = () => {
 
     data.Reward = +data.Reward;
     try {
-      editTask(data).unwrap();
+      await editTask(data).unwrap();
       toast.success("Задача успешно добавлена");
     } catch (err) {
       console.log(err);
