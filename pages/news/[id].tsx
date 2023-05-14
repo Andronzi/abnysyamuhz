@@ -1,10 +1,10 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { useGetTasksQuery } from "../../services/tasks/taskRealApi";
+import { useGetNewsSingleQuery } from "../../services/news/newsRealApi";
 
 const EventPage = () => {
-  const router = useRouter();
-  const tasks = useGetTasksQuery().data;
+  const { query } = useRouter();
+  const news = useGetNewsSingleQuery(query.id?.toString() || "1").data;
   return (
     <>
       <div className="relative">
@@ -17,18 +17,20 @@ const EventPage = () => {
         </h1>
       </div>
       <div className="flex flex-row justify-between">
-        <div className="basis-2/5 z-20 -mt-32 ml-1">
-          <button className="flex items-center relative text-white border-2 pl-10 py-3 pr-2 text-2xl rounded-full border-white mb-4">
-            ЗАРЕГИСТРИРОВАТЬСЯ
-            <Image
-              alt="Картинка ссылочки"
-              src="/arrow.svg"
-              className="ml-6"
-              width={42}
-              height={42}
-            />
-          </button>
-          <p className="text-white">
+        <div className="basis-2/5 z-20 ml-1">
+          {!!news?.EventID && (
+            <button className="-mt-32 mb-16 flex items-center relative text-white border-2 pl-10 py-3 pr-2 text-2xl rounded-full border-white mb-4">
+              ЗАРЕГИСТРИРОВАТЬСЯ
+              <Image
+                alt="Картинка ссылочки"
+                src="/arrow.svg"
+                className="ml-6"
+                width={42}
+                height={42}
+              />
+            </button>
+          )}
+          <p className="text-white -mt-12">
             Участники получат возможность узнать : о последних тенденциях в
             IT-индустрии о новейших технологиях и инструментах для работы. Кроме
             того, они смогут провести время с коллегами из других отделов
