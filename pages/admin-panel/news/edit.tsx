@@ -17,7 +17,7 @@ import { News } from "../../api/models/news";
 
 const EventForm = () => {
   const { query } = useRouter();
-  const { data } = useGetNewsSingleQuery(query.id!.toString());
+  const { data } = useGetNewsSingleQuery(query.id?.toString() || "1");
   const {
     register,
     handleSubmit,

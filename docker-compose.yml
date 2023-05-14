@@ -3,9 +3,7 @@ version: '3.8'
 
 services:
   web:
-    build:
-      context: ./
-      target: runner
+    image: somnoynadno/debug-image:v1.0.0
     volumes:
       - .:/app
     command: npm run dev
