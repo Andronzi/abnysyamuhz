@@ -1,5 +1,5 @@
+import { Employee } from "../../pages/api/models/employee";
 import { emptySplitApi } from "../emptySplitApi";
-import {Employee} from "../../pages/api/models/employee";
 
 const endpoint = "employee";
 
@@ -26,7 +26,7 @@ export const employeeEmptyApi = emptySplitApi.injectEndpoints({
                 const { ID, ...body} = data;
                 return {
                     url: `/${endpoint}/${ID}`,
-                    method: "PATCH",
+                    method: "PUT",
                     body
                 }
             },
