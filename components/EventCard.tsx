@@ -1,3 +1,4 @@
+import { Button } from "@material-tailwind/react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { FC } from "react";
@@ -11,7 +12,7 @@ const EventCard: FC<IEvent & { isAdmin: boolean }> = ({
   Place,
   Date,
   isAdmin,
-  Price
+  Price,
 }) => {
   const [deleteEvent] = useDeleteEventMutation();
   const router = useRouter();
@@ -47,8 +48,8 @@ const EventCard: FC<IEvent & { isAdmin: boolean }> = ({
       )}
       {isAdmin && (
         <div className="flex gap-4" onClick={(e) => e.stopPropagation()}>
-          <button
-            className="w-full py-1.5 mt-2 bg-amber-500	 text-white rounded-md font-medium"
+          <Button
+            className="w-full bg-amber-500 shadow-amber-500/20 hover:shadow-amber-500/40 text-white rounded-md font-medium py-3 px-6"
             onClick={() => {
               router.push({
                 pathname: "/admin-panel/event/edit",
@@ -59,9 +60,9 @@ const EventCard: FC<IEvent & { isAdmin: boolean }> = ({
             }}
           >
             Изменить
-          </button>
-          <button
-            className="w-full py-1.5 mt-2 bg-red-500 text-white rounded-md font-medium"
+          </Button>
+          <Button
+            className="w-full bg-red-500 shadow-red-500/20 hover:shadow-red-500/40 text-white rounded-md font-medium p-3 py-3 px-6"
             onClick={() => {
               try {
                 deleteEvent(ID);
@@ -73,7 +74,7 @@ const EventCard: FC<IEvent & { isAdmin: boolean }> = ({
             }}
           >
             Удалить
-          </button>
+          </Button>
         </div>
       )}
     </>
