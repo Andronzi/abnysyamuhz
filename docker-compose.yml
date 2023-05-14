@@ -3,7 +3,7 @@ version: '3.8'
 
 services:
   web:
-    image: somnoynadno/debug-image:v1.0.0
+    image: somnoynadno/debug-image:v1.1.0
     volumes:
       - .:/app
     command: npm run dev
