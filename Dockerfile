@@ -2,8 +2,8 @@
 FROM node:lts-alpine AS deps
 
 WORKDIR /opt/app
-COPY package.json yarn.lock ./
-RUN yarn install --frozen-lockfile
+COPY package.json package-lock.json ./
+RUN npm ci
 
 # Rebuild the source code only when needed
 # This is where because may be the case that you would try
